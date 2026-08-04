@@ -47,12 +47,7 @@ function loadPhoto(i) {
     return;
   }
 
-  photoImg.classList.remove("is-visible");
-  photoPlaceholder.classList.remove("is-hidden");
-  photoPlaceholderText.innerHTML =
-    "Taruh file <strong>" +
-    slides[i].photoLabel +
-    "</strong> (ilustrasi + background biru-oren) di sini";
+
 
   const testImg = new Image();
   testImg.onload = function () {
