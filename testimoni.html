@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimoni Peserta — PUSKANAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo"><img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional"></a>
+      <nav></nav>
+      <a href="https://app.puskanas.id/" class="btn-app" target="_blank" rel="noopener">Masuk ke Aplikasi</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="testimoni-page">
+      <div class="testimoni-bg" id="testimoniBg" aria-hidden="true"></div>
+      <div class="testimoni-head">
+        <h2>Pengalaman Peserta dan Sekolah</h2>
+        <p>Cerita langsung dari peserta, orang tua, guru, sekolah, mitra, dan alumni yang mengikuti kompetisi di ekosistem PUSKANAS.</p>
+      </div>
+
+      <div class="testimoni-filter" id="testimoniFilter" role="group" aria-label="Saring testimoni berdasarkan sumber">
+        <button type="button" class="testimoni-chip is-active" data-sumber="semua">Semua</button>
+        <button type="button" class="testimoni-chip" data-sumber="peserta">Peserta</button>
+        <button type="button" class="testimoni-chip" data-sumber="orangtua">Orang Tua</button>
+        <button type="button" class="testimoni-chip" data-sumber="guru">Guru</button>
+        <button type="button" class="testimoni-chip" data-sumber="sekolah">Sekolah</button>
+        <button type="button" class="testimoni-chip" data-sumber="mitra">Mitra</button>
+        <button type="button" class="testimoni-chip" data-sumber="alumni">Alumni</button>
+      </div>
+
+      <div class="testimoni-grid" id="testimoniGrid"></div>
+
+      <p class="testimoni-empty" id="testimoniEmpty" hidden>Belum ada testimoni untuk kategori ini.</p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 PUSKANAS. Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="data-testimoni.js"></script>
+<script src="testimoni.js"></script>
+</body>
+</html>

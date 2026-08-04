@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kurasi Ajang Talenta — PUSKANAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* =====================================================
+         REDESIGN HALAMAN KURASI
+         Seluruh style dibatasi di .kurasi-page agar tidak
+         memengaruhi halaman lain.
+         ===================================================== */
+
+      .kurasi-page {
+        width: min(100%, 1360px);
+        margin-inline: auto;
+        padding: 38px 44px 88px;
+      }
+
+      .kurasi-hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+        align-items: end;
+        gap: clamp(42px, 7vw, 112px);
+        min-height: 430px;
+        padding: clamp(46px, 6vw, 82px);
+        border-radius: 34px;
+        background: linear-gradient(135deg, #fbc51a 0%, #f4aa1c 54%, #f68b18 100%);
+        box-shadow: 0 30px 80px rgba(46, 63, 92, 0.12);
+      }
+
+      .kurasi-hero::after {
+        content: "";
+        position: absolute;
+        right: -110px;
+        bottom: -170px;
+        z-index: -1;
+        width: 410px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: rgba(21, 95, 170, 0.16);
+      }
+
+      .kurasi-hero__copy,
+      .kurasi-hero__summary {
+        position: relative;
+        z-index: 1;
+      }
+
+      .kurasi-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        margin: 0 0 24px;
+        padding: 8px 14px;
+        border: 1px solid rgba(8, 37, 86, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.58);
+        color: #082556;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.76rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .kurasi-hero h1 {
+        max-width: 730px;
+        min-height: 0;
+        margin: 0;
+        color: #082556;
+        font-size: clamp(3.2rem, 6vw, 6.6rem);
+        line-height: 0.94;
+        letter-spacing: -0.06em;
+      }
+
+      .kurasi-hero__summary {
+        padding: 28px 30px;
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: 0 18px 50px rgba(8, 37, 86, 0.09);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .kurasi-hero__summary p {
+        margin: 0;
+        color: #17345f;
+        font-size: 1rem;
+        line-height: 1.82;
+      }
+
+      .kurasi-info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+        margin-top: 24px;
+      }
+
+      .kurasi-info-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 100%;
+        padding: 34px 34px 36px;
+        border: 1px solid #e4e8ee;
+        border-radius: 24px;
+        background: #ffffff;
+        box-shadow: 0 20px 50px rgba(20, 22, 31, 0.06);
+      }
+
+      .kurasi-info-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: #155faa;
+      }
+
+      .kurasi-info-card.is-warning::before {
+        background: #f68b18;
+      }
+
+      .kurasi-info-card h2 {
+        margin: 0 0 14px;
+        color: #082556;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: clamp(1.25rem, 2vw, 1.7rem);
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .kurasi-info-card p {
+        margin: 0;
+        color: #5b6270;
+        font-size: 0.96rem;
+        line-height: 1.8;
+      }
+
+      .kurasi-list {
+        margin-top: 24px;
+        padding: clamp(28px, 4vw, 48px);
+        border: 1px solid #e4e8ee;
+        border-radius: 30px;
+        background: #ffffff;
+        box-shadow: 0 24px 70px rgba(20, 22, 31, 0.07);
+      }
+
+      .kurasi-list-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+        align-items: end;
+        gap: 32px;
+        margin: 0 0 30px;
+        padding: 0 0 26px;
+        border-bottom: 1px solid #e7eaf0;
+      }
+
+      .kurasi-list-head h2 {
+        margin: 0;
+        color: #082556;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.7rem);
+        font-weight: 800;
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      .kurasi-list-head p {
+        margin: 0;
+        color: #6a7180;
+        font-size: 0.93rem;
+        line-height: 1.65;
+      }
+
+      .kurasi-table {
+        display: grid;
+        gap: 12px;
+      }
+
+      .kurasi-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 26px;
+        min-height: 96px;
+        padding: 21px 22px 21px 28px;
+        border: 1px solid #e7eaf0;
+        border-radius: 18px;
+        background: #fbfcfe;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .kurasi-row::before {
+        content: "";
+        position: absolute;
+        top: 18px;
+        bottom: 18px;
+        left: 0;
+        width: 5px;
+        border-radius: 0 999px 999px 0;
+        background: linear-gradient(180deg, #fbc51a, #f68b18);
+      }
+
+      .kurasi-row:hover {
+        transform: translateY(-2px);
+        border-color: rgba(21, 95, 170, 0.28);
+        background: #ffffff;
+        box-shadow: 0 16px 34px rgba(8, 37, 86, 0.08);
+      }
+
+      .kurasi-row-info {
+        min-width: 0;
+      }
+
+      .kurasi-row-title {
+        color: #082556;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 750;
+        line-height: 1.42;
+      }
+
+      .kurasi-row-meta {
+        margin-top: 7px;
+        color: #727988;
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .kurasi-status {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        max-width: 250px;
+        padding: 9px 15px;
+        border: 1px solid rgba(21, 95, 170, 0.16);
+        border-radius: 999px;
+        background: #eaf2fc !important;
+        color: #155faa !important;
+        font-size: 0.74rem;
+        font-weight: 800;
+        line-height: 1.3;
+        text-align: center;
+        box-shadow: none !important;
+      }
+
+      .kurasi-note {
+        margin: 28px 0 0;
+        padding: 20px 22px;
+        border: 1px solid rgba(21, 95, 170, 0.12);
+        border-radius: 16px;
+        background: #f1f6fd;
+        color: #526176;
+        font-size: 0.84rem;
+        line-height: 1.72;
+      }
+
+      @media (max-width: 1024px) {
+        .kurasi-page {
+          padding-inline: 28px;
+        }
+
+        .kurasi-hero {
+          grid-template-columns: 1fr;
+          min-height: 0;
+          gap: 34px;
+        }
+
+        .kurasi-hero h1 {
+          max-width: 860px;
+          font-size: clamp(3.2rem, 9vw, 5.7rem);
+        }
+
+        .kurasi-hero__summary {
+          max-width: 700px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .kurasi-page {
+          padding: 22px 18px 64px;
+        }
+
+        .kurasi-hero {
+          padding: 38px 26px;
+          border-radius: 26px;
+        }
+
+        .kurasi-hero h1 {
+          font-size: clamp(2.8rem, 15vw, 4.7rem);
+          line-height: 0.98;
+        }
+
+        .kurasi-hero__summary {
+          padding: 23px;
+          border-radius: 19px;
+        }
+
+        .kurasi-info-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          margin-top: 16px;
+        }
+
+        .kurasi-info-card {
+          padding: 28px 24px 30px;
+          border-radius: 20px;
+        }
+
+        .kurasi-list {
+          margin-top: 16px;
+          padding: 28px 20px;
+          border-radius: 24px;
+        }
+
+        .kurasi-list-head {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          margin-bottom: 22px;
+          padding-bottom: 20px;
+        }
+
+        .kurasi-row {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          min-height: 0;
+          padding: 20px 18px 20px 22px;
+        }
+
+        .kurasi-status {
+          width: 100%;
+          max-width: none;
+          border-radius: 13px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .kurasi-page {
+          padding-inline: 14px;
+        }
+
+        .kurasi-hero {
+          padding: 32px 20px;
+          border-radius: 22px;
+        }
+
+        .kurasi-eyebrow {
+          margin-bottom: 18px;
+          font-size: 0.68rem;
+        }
+
+        .kurasi-hero h1 {
+          font-size: 2.75rem;
+        }
+
+        .kurasi-hero__summary p,
+        .kurasi-info-card p {
+          font-size: 0.91rem;
+        }
+
+        .kurasi-list {
+          padding-inline: 16px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .kurasi-row {
+          transition: none;
+        }
+
+        .kurasi-row:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a href="index.html" class="logo"
+          ><img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional"
+        /></a>
+        <nav></nav>
+        <a
+          href="https://app.puskanas.id/"
+          class="btn-app"
+          target="_blank"
+          rel="noopener"
+          >Masuk ke Aplikasi</a
+        >
+      </div>
+    </header>
+
+    <main class="kurasi-page">
+      <section class="kurasi-hero">
+        <div class="kurasi-hero__copy">
+          <span class="kurasi-eyebrow">Portal Publikasi Hasil Kurasi</span>
+          <h1>Kurasi Ajang Talenta</h1>
+        </div>
+
+        <div class="kurasi-hero__summary">
+          <p>
+            Transparansi proses pengajuan kurasi ajang talenta di ekosistem
+            PUSKANAS melalui Sistem Informasi Manajemen Talenta (SIMT)
+            Kemendikdasmen.
+          </p>
+        </div>
+      </section>
+
+      <section class="kurasi-info-grid">
+        <article class="kurasi-info-card">
+          <h2>Apa itu Kurasi?</h2>
+          <p>
+            Kurasi talenta adalah proses mengidentifikasi, menilai, dan
+            memberikan pengakuan resmi terhadap suatu ajang dan/atau prestasi
+            peserta didik. Proses ini dilakukan oleh Kemendikdasmen melalui
+            Pusat Prestasi Nasional, dan hasilnya tercatat pada basis data
+            manajemen talenta nasional (SIMT).
+          </p>
+        </article>
+
+        <article class="kurasi-info-card is-warning">
+          <h2>Perhatian Penting</h2>
+          <p>
+            Pengajuan kurasi melalui proses verifikasi berjenjang, sehingga
+            waktu prosesnya bervariasi. Jika kamu berencana menggunakan
+            prestasi untuk jalur prestasi (japres), ikuti kompetisi jauh
+            sebelum jalur tersebut dibuka agar status kurasi sempat terbit.
+          </p>
+        </article>
+      </section>
+
+      <section class="kurasi-list">
+        <div class="kurasi-list-head">
+          <h2>Progress Kurasi Ajang</h2>
+          <p>Status pengajuan kurasi tiap kompetisi di ekosistem PUSKANAS.</p>
+        </div>
+
+        <div class="kurasi-table" id="kurasiTable"></div>
+
+        <p class="kurasi-note">
+          Status di atas menunjukkan progres pengajuan internal dan dapat
+          berubah mengikuti hasil verifikasi resmi Kemendikdasmen. Status
+          final yang berlaku adalah yang tercatat di SIMT.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            © 2026 PUSKANAS. Seluruh hak cipta dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="data-kompetisi.js"></script>
+    <script src="kurasi.js"></script>
+  </body>
+</html>

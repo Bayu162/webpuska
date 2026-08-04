@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Pengumuman — PUSKANAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a href="index.html" class="logo"
+          ><img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional"
+        /></a>
+        <nav></nav>
+        <a
+          href="https://app.puskanas.id/"
+          class="btn-app"
+          target="_blank"
+          rel="noopener"
+          >Masuk ke Aplikasi</a>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="pengumuman-notfound" id="notFound" hidden>
+        <h1>Pengumuman Tidak Ditemukan</h1>
+        <p>
+          Pengumuman yang kamu cari mungkin sudah dihapus atau tautannya keliru.
+        </p>
+        <a href="index.html#papan-pengumuman" class="btn-primary"
+          >Kembali ke Papan Pengumuman</a
+        >
+      </div>
+
+      <article class="pengumuman-detail" id="detailContent" hidden>
+        <a href="index.html#papan-pengumuman" class="pengumuman-back"
+          >&larr; Kembali ke Papan Pengumuman</a
+        >
+
+        <div class="pengumuman-meta">
+          <span id="badge" class="papan-badge"></span>
+          <time id="tanggal"></time>
+        </div>
+
+        <h1 id="judul"></h1>
+
+        <div class="pengumuman-brand-row">
+          <span id="brandInisial" class="pengumuman-brand-badge"></span>
+          <div>
+            <div id="brand" class="pengumuman-brand-name"></div>
+            <div class="pengumuman-brand-label">Penyelenggara</div>
+          </div>
+        </div>
+
+        <p id="isi" class="pengumuman-isi"></p>
+      </article>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            © 2026 PUSKANAS. Seluruh hak cipta dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="data-pengumuman.js"></script>
+    <script src="pengumuman.js"></script>
+  </body>
+</html>

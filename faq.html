@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — PUSKANAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo"><img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional"></a>
+      <nav></nav>
+      <a href="https://app.puskanas.id/" class="btn-app" target="_blank" rel="noopener">Masuk ke Aplikasi</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="faq-page">
+      <div class="faq-head">
+        <h1>Pertanyaan yang Sering Diajukan</h1>
+        <p>Cari jawaban seputar akun, pendaftaran, event, hingga kerja sama dengan PUSKANAS.</p>
+      </div>
+
+      <div class="testimoni-filter" id="faqFilter" role="group" aria-label="Saring FAQ berdasarkan kategori">
+        <button type="button" class="testimoni-chip is-active" data-kategori="semua">Semua</button>
+        <button type="button" class="testimoni-chip" data-kategori="akun">Akun</button>
+        <button type="button" class="testimoni-chip" data-kategori="pendaftaran">Pendaftaran</button>
+        <button type="button" class="testimoni-chip" data-kategori="event">Event</button>
+        <button type="button" class="testimoni-chip" data-kategori="biaya">Biaya</button>
+        <button type="button" class="testimoni-chip" data-kategori="ujian">Ujian</button>
+        <button type="button" class="testimoni-chip" data-kategori="piagam">Piagam &amp; Sertifikat</button>
+        <button type="button" class="testimoni-chip" data-kategori="medali">Medali &amp; Hadiah</button>
+        <button type="button" class="testimoni-chip" data-kategori="pengiriman">Pengiriman</button>
+        <button type="button" class="testimoni-chip" data-kategori="kurasi">Kurasi</button>
+        <button type="button" class="testimoni-chip" data-kategori="teknis">Kendala Teknis</button>
+        <button type="button" class="testimoni-chip" data-kategori="kerjasama">Kerja Sama</button>
+      </div>
+
+      <div class="faq-list" id="faqList"></div>
+
+      <p class="testimoni-empty" id="faqEmpty" hidden>Belum ada pertanyaan untuk kategori ini.</p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 PUSKANAS. Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="data-faq.js"></script>
+<script src="faq.js"></script>
+</body>
+</html>
