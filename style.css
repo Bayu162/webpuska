@@ -958,6 +958,13 @@ footer::after {
   max-width: 440px;
   margin-bottom: 28px;
 }
+.google-play-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+  flex-shrink: 0;
+}
+
 .store-badges {
   display: flex;
   gap: 16px;
