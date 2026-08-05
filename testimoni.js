@@ -1,14 +1,7 @@
 (function () {
   const grid = document.getElementById("testimoniGrid");
   const empty = document.getElementById("testimoniEmpty");
-  const filter = document.getElementById("testimoniFilter");
-  const background = document.getElementById("testimoniBg");
-
-  if (!grid || !empty || !filter || typeof TESTIMONI === "undefined") {
-    return;
-  }
-
-  const sumberLabel = {
+  const SUMBER_LABEL = {
     peserta: "Peserta",
     orangtua: "Orang Tua",
     guru: "Guru",
@@ -17,145 +10,116 @@
     alumni: "Alumni",
   };
 
-  function createAvatar(testimoni, className) {
-    if (testimoni.foto && className === "testimoni-foto") {
-      const image = document.createElement("img");
-      image.src = testimoni.foto;
-      image.alt = testimoni.nama;
-      image.loading = "lazy";
-      image.decoding = "async";
-      image.className = className;
-      return image;
-    }
-
-    const avatar = document.createElement("div");
-    avatar.className = className;
-    avatar.textContent = testimoni.nama.charAt(0).toUpperCase();
-    avatar.setAttribute("aria-hidden", "true");
-    return avatar;
-  }
-
-  function createCard(testimoni) {
-    const card = document.createElement("article");
-    card.className = "testimoni-card";
-
-    const header = document.createElement("div");
-    header.className = "testimoni-card-head";
-    header.appendChild(
-      testimoni.foto
-        ? createAvatar(testimoni, "testimoni-foto")
-        : createAvatar(testimoni, "testimoni-avatar"),
-    );
-
-    const name = document.createElement("div");
-    name.className = "testimoni-nama";
-    name.textContent = testimoni.nama;
-    header.appendChild(name);
-
-    const badge = document.createElement("span");
-    badge.className = "testimoni-badge";
-    badge.textContent = sumberLabel[testimoni.sumber] || testimoni.sumber;
-
-    const quote = document.createElement("p");
-    quote.className = "testimoni-isi";
-    quote.textContent = `“${testimoni.isi}”`;
-
-    const origin = document.createElement("div");
-    origin.className = "testimoni-status";
-    origin.textContent = testimoni.statusAsal;
-
-    const meta = document.createElement("div");
-    meta.className = "testimoni-meta";
-    meta.textContent = `${testimoni.event} · ${testimoni.tahun}`;
-
-    card.append(header, badge, quote, origin, meta);
-    return card;
-  }
-
-  function render(source) {
-    const items =
-      source === "semua"
+  function render(sumber) {
+    const list =
+      sumber === "semua"
         ? TESTIMONI
-        : TESTIMONI.filter((item) => item.sumber === source);
+        : TESTIMONI.filter((t) => t.sumber === sumber);
+    grid.innerHTML = "";
+    empty.hidden = list.length > 0;
 
-    const fragment = document.createDocumentFragment();
-    items.forEach((item) => fragment.appendChild(createCard(item)));
+    list.forEach((t) => {
+      const card = document.createElement("article");
+      card.className = "testimoni-card";
 
-    grid.replaceChildren(fragment);
-    empty.hidden = items.length > 0;
-  }
+      const head = document.createElement("div");
+      head.className = "testimoni-card-head";
 
-  function createBackgroundCard(testimoni) {
-    const card = document.createElement("div");
-    card.className = "testimoni-bg-card";
-
-    const avatar = createAvatar(testimoni, "testimoni-bg-avatar");
-
-    const name = document.createElement("div");
-    name.className = "testimoni-bg-nama";
-    name.textContent = testimoni.nama;
-
-    const quote = document.createElement("div");
-    quote.className = "testimoni-bg-isi";
-    quote.textContent = testimoni.isi;
-
-    card.append(avatar, name, quote);
-    return card;
-  }
-
-  function renderAnimatedBackground() {
-    if (!background || !TESTIMONI.length) {
-      return;
-    }
-
-    const columns = 5;
-    const repetitions = 2;
-    const backgroundFragment = document.createDocumentFragment();
-
-    for (let columnIndex = 0; columnIndex < columns; columnIndex += 1) {
-      const column = document.createElement("div");
-      column.className = `testimoni-bg-col${columnIndex % 2 ? " is-reverse" : ""}`;
-      column.style.setProperty("--bg-delay", `${columnIndex * -5.5}s`);
-
-      const unit = [];
-      for (let repetition = 0; repetition < repetitions; repetition += 1) {
-        TESTIMONI.forEach((_, itemIndex) => {
-          unit.push(TESTIMONI[(itemIndex + columnIndex) % TESTIMONI.length]);
-        });
+      if (t.foto) {
+        const img = document.createElement("img");
+        img.src = t.foto;
+        img.alt = t.nama;
+        img.loading = "lazy";
+        img.className = "testimoni-foto";
+        head.appendChild(img);
+      } else {
+        const avatar = document.createElement("div");
+        avatar.className = "testimoni-avatar";
+        avatar.textContent = t.nama.charAt(0);
+        head.appendChild(avatar);
       }
 
-      [...unit, ...unit].forEach((testimoni) => {
-        column.appendChild(createBackgroundCard(testimoni));
-      });
+      const nama = document.createElement("div");
+      nama.className = "testimoni-nama";
+      nama.textContent = t.nama;
+      head.appendChild(nama);
+      card.appendChild(head);
 
-      backgroundFragment.appendChild(column);
-    }
+      const badge = document.createElement("span");
+      badge.className = "testimoni-badge";
+      badge.textContent = SUMBER_LABEL[t.sumber] || t.sumber;
+      card.appendChild(badge);
 
-    background.replaceChildren(backgroundFragment);
+      const isi = document.createElement("p");
+      isi.className = "testimoni-isi";
+      isi.textContent = "“" + t.isi + "”";
+      card.appendChild(isi);
+
+      const statusAsal = document.createElement("div");
+      statusAsal.className = "testimoni-status";
+      statusAsal.textContent = t.statusAsal;
+      card.appendChild(statusAsal);
+
+      const meta = document.createElement("div");
+      meta.className = "testimoni-meta";
+      meta.textContent = t.event + " · " + t.tahun;
+      card.appendChild(meta);
+
+      grid.appendChild(card);
+    });
   }
 
-  filter.addEventListener("click", (event) => {
-    const button = event.target.closest(".testimoni-chip");
-    if (!button) {
-      return;
+  function renderBg() {
+    const bg = document.getElementById("testimoniBg");
+    if (!bg) return;
+    const COLS = 6;
+    const REPEAT = 3; // ulang data per kolom biar cukup tinggi menutupi section
+
+    for (let c = 0; c < COLS; c++) {
+      const col = document.createElement("div");
+      col.className = "testimoni-bg-col" + (c % 2 === 1 ? " is-reverse" : "");
+
+      let unit = [];
+      for (let r = 0; r < REPEAT; r++) {
+        TESTIMONI.forEach((_, i) =>
+          unit.push(TESTIMONI[(i + c) % TESTIMONI.length]),
+        );
+      }
+
+      unit.concat(unit).forEach((t) => {
+        const card = document.createElement("div");
+        card.className = "testimoni-bg-card";
+
+        const avatar = document.createElement("div");
+        avatar.className = "testimoni-bg-avatar";
+        avatar.textContent = t.nama.charAt(0);
+
+        const nama = document.createElement("div");
+        nama.className = "testimoni-bg-nama";
+        nama.textContent = t.nama;
+
+        const isi = document.createElement("div");
+        isi.className = "testimoni-bg-isi";
+        isi.textContent = t.isi;
+
+        card.append(avatar, nama, isi);
+        col.appendChild(card);
+      });
+
+      bg.appendChild(col);
     }
+  }
 
-    filter.querySelectorAll(".testimoni-chip").forEach((chip) => {
-      const active = chip === button;
-      chip.classList.toggle("is-active", active);
-      chip.setAttribute("aria-pressed", active ? "true" : "false");
-    });
-
-    render(button.dataset.sumber || "semua");
-  });
-
-  filter.querySelectorAll(".testimoni-chip").forEach((chip) => {
-    chip.setAttribute(
-      "aria-pressed",
-      chip.classList.contains("is-active") ? "true" : "false",
-    );
+  document.getElementById("testimoniFilter").addEventListener("click", (e) => {
+    const btn = e.target.closest(".testimoni-chip");
+    if (!btn) return;
+    document
+      .querySelectorAll(".testimoni-chip")
+      .forEach((c) => c.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    render(btn.dataset.sumber);
   });
 
   render("semua");
-  renderAnimatedBackground();
+  renderBg();
 })();
