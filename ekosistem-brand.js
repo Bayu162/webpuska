@@ -5,8 +5,8 @@
     return;
   }
 
-  const brandOrder = ["puskanas", "presmanesia", "fosnas", "gemanesia"];
-  const brandColors = {
+  const urutan = ["puskanas", "presmanesia", "fosnas", "gemanesia"];
+  const warnaBrand = {
     puskanas: {
       accent: "#e97f19",
       soft: "rgba(233, 127, 25, 0.08)",
@@ -24,35 +24,22 @@
     },
     gemanesia: {
       accent: "#10a3b5",
-      soft: "rgba(16, 163, 181, 0.08)",
-      ring: "rgba(16, 163, 181, 0.08)",
+
+      ring: "rgba(16, 163, 181, 0.09)",
     },
   };
 
-  const markup = brandOrder
-    .map((brandId) => {
-      const brand = BRAND[brandId];
-      const color = brandColors[brandId];
-
-      if (!brand || !color) {
-        return "";
-      }
-
-      const primaryEvent =
-        Array.isArray(brand.contohEvent) && brand.contohEvent.length
-          ? brand.contohEvent[0]
-          : "Informasi event segera hadir";
+  grid.innerHTML = urutan
+    .map((id, index) => {
+      const brand = BRAND[id];
+      const warna = warnaBrand[id];
+      const eventUtama = brand.contohEvent[0];
+      const nomor = String(index + 1).padStart(2);
 
       return `
-      <article
-        class="ekosistem-card ekosistem-card--${brandId}"
-        style="--brand-accent:${color.accent}; --brand-soft:${color.soft}; --brand-ring:${color.ring};"
-      >
-        <a
-          class="ekosistem-card-link"
-          href="brand/${brandId}.html"
-          aria-label="Lihat profil brand ${brand.nama}"
-        >
+      <article class="ekosistem-card ekosistem-card--${id}"
+        style="--brand-accent:${warna.accent}; --brand-soft:${warna.soft}; --brand-ring:${warna.ring};">
+        <a class="ekosistem-card-link" href="brand/${id}.html" aria-label="Lihat profil brand ${brand.nama}">
           <div class="ekosistem-card-top">
             <div class="ekosistem-logo-shell">
               <img
@@ -70,20 +57,14 @@
             <p class="ekosistem-tagline">${brand.tagline}</p>
             <div class="ekosistem-meta">
               <span class="ekosistem-meta-item">${brand.targetPeserta}</span>
-              <span class="ekosistem-meta-item">${primaryEvent}</span>
+              <span class="ekosistem-meta-item">${eventUtama}</span>
             </div>
           </div>
 
           <span class="ekosistem-card-action">
             <span>Kenali brand</span>
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path
-                d="M4 10h11M11 6l4 4-4 4"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M4 10h11M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </a>
