@@ -1,0 +1,879 @@
+/* =========================================================
+   HALAMAN DETAIL BRAND
+   CSS khusus halaman brand. Seluruh selector di-scope melalui
+   body.brand-page agar tidak mengubah halaman lain.
+   ========================================================= */
+
+.brand-page {
+  --brand-navy: #082556;
+  --brand-blue: #155faa;
+  --brand-orange: #f6ad22;
+  --brand-orange-strong: #f47b16;
+  --brand-orange-soft: #fff1d2;
+  --brand-surface: #ffffff;
+  --brand-background: #f7f8fa;
+  --brand-text: #17243a;
+  --brand-muted: #667085;
+  --brand-line: #e2e7ee;
+  --brand-shadow: 0 24px 60px rgba(8, 37, 86, 0.11);
+  min-width: 0;
+  overflow-x: hidden;
+  background: var(--brand-background);
+  color: var(--brand-text);
+}
+
+.brand-page *,
+.brand-page *::before,
+.brand-page *::after {
+  box-sizing: border-box;
+}
+
+.brand-page img {
+  max-width: 100%;
+  height: auto;
+}
+
+.brand-page-main {
+  min-height: 70vh;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.brand-profile-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(118deg, #f5a91d 0%, #f9bb2f 62%, #ffd05a 100%);
+  color: var(--brand-navy);
+}
+
+.brand-profile-hero::before,
+.brand-profile-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.brand-profile-hero::before {
+  width: min(56vw, 760px);
+  aspect-ratio: 1;
+  right: -16%;
+  bottom: -76%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.brand-profile-hero::after {
+  width: min(35vw, 480px);
+  aspect-ratio: 1;
+  top: -58%;
+  left: -8%;
+  background: rgba(8, 37, 86, 0.055);
+}
+
+.brand-profile-hero__inner {
+  width: min(1180px, calc(100% - 48px));
+  min-height: 470px;
+  margin-inline: auto;
+  padding-block: 70px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+  align-items: center;
+  gap: clamp(54px, 8vw, 110px);
+}
+
+.brand-profile-hero__copy {
+  min-width: 0;
+}
+
+.brand-profile-back {
+  min-height: 44px;
+  margin-bottom: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--brand-navy);
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: gap 180ms ease, opacity 180ms ease;
+}
+
+.brand-profile-back::before {
+  content: "←";
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.brand-profile-back:hover {
+  gap: 13px;
+  opacity: 0.74;
+}
+
+.brand-profile-hero h1 {
+  max-width: 760px;
+  min-height: 0;
+  margin: 0;
+  color: var(--brand-navy);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5.4rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.brand-profile-tagline {
+  max-width: 650px;
+  margin: 24px 0 0;
+  color: rgba(8, 37, 86, 0.78);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.23rem);
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.brand-profile-logo-panel {
+  min-height: 320px;
+  padding: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(8, 37, 86, 0.08);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--brand-shadow);
+}
+
+.brand-profile-logo-panel img {
+  display: block;
+  width: min(100%, 290px);
+  max-height: 150px;
+  object-fit: contain;
+}
+
+/* =========================================================
+   NAVIGASI ISI
+   ========================================================= */
+
+.brand-profile-jump {
+  position: relative;
+  z-index: 3;
+  border-bottom: 1px solid var(--brand-line);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.brand-profile-jump__inner {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.brand-profile-jump__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.brand-profile-jump a {
+  flex: 0 0 auto;
+  min-height: 58px;
+  padding-inline: 15px;
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.brand-profile-jump a:hover,
+.brand-profile-jump a:focus-visible {
+  color: var(--brand-navy);
+  border-bottom-color: var(--brand-orange-strong);
+}
+
+/* =========================================================
+   KONTEN UMUM
+   ========================================================= */
+
+.brand-profile-content {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+  padding-block: 92px 112px;
+}
+
+.brand-profile-content > section {
+  scroll-margin-top: 90px;
+}
+
+.brand-profile-content > section + section {
+  margin-top: 96px;
+}
+
+.brand-profile-index {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--brand-orange-strong);
+  font-family: "Inter", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.brand-profile-content h2 {
+  margin: 0 0 18px;
+  color: var(--brand-navy);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.55rem, 3vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.brand-profile-content p {
+  margin: 0;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.82;
+}
+
+/* =========================================================
+   TENTANG + POSITIONING
+   ========================================================= */
+
+.brand-profile-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--brand-line);
+  border-bottom: 1px solid var(--brand-line);
+}
+
+.brand-profile-copy-block {
+  min-width: 0;
+  padding: 40px 0 44px;
+}
+
+.brand-profile-copy-block + .brand-profile-copy-block {
+  margin-left: 48px;
+  padding-left: 48px;
+  border-left: 1px solid var(--brand-line);
+}
+
+/* =========================================================
+   TARGET, EVENT, BIDANG
+   ========================================================= */
+
+.brand-profile-program {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  grid-template-areas:
+    "target events"
+    "fields events";
+  gap: 22px;
+  align-items: stretch;
+}
+
+.brand-profile-target,
+.brand-profile-events,
+.brand-profile-fields {
+  min-width: 0;
+  border-radius: 26px;
+}
+
+.brand-profile-target {
+  grid-area: target;
+  padding: 34px;
+  background: var(--brand-orange);
+}
+
+.brand-profile-target .brand-profile-index,
+.brand-profile-target h2,
+.brand-profile-target p {
+  color: var(--brand-navy);
+}
+
+.brand-profile-target p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.brand-profile-events {
+  grid-area: events;
+  padding: 34px 36px;
+  border: 1px solid var(--brand-line);
+  background: var(--brand-surface);
+}
+
+.brand-profile-fields {
+  grid-area: fields;
+  padding: 34px;
+  border: 1px solid var(--brand-line);
+  background: var(--brand-surface);
+}
+
+.brand-page .brand-event-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  list-style: none;
+}
+
+.brand-page .brand-event-list li {
+  padding: 21px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  border: 0;
+  border-bottom: 1px solid var(--brand-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.brand-page .brand-event-list li:first-child {
+  padding-top: 5px;
+}
+
+.brand-page .brand-event-list li:last-child {
+  padding-bottom: 3px;
+  border-bottom: 0;
+}
+
+.brand-page .brand-event-list strong {
+  color: var(--brand-text);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.brand-page .brand-event-list span {
+  max-width: 190px;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.brand-page .ekosistem-karakter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.brand-page .ekosistem-chip {
+  min-height: 38px;
+  padding: 8px 13px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(8, 37, 86, 0.13);
+  border-radius: 999px;
+  background: var(--brand-orange-soft);
+  color: var(--brand-navy);
+  font-family: "Inter", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 750;
+}
+
+/* =========================================================
+   CAPAIAN
+   ========================================================= */
+
+.brand-profile-achievement {
+  overflow: hidden;
+  padding: 42px;
+  border-radius: 30px;
+  background: var(--brand-navy);
+}
+
+.brand-profile-achievement .brand-profile-index {
+  color: var(--brand-orange);
+}
+
+.brand-profile-achievement h2 {
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.brand-page .brand-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+}
+
+.brand-page .brand-stat {
+  min-width: 0;
+  padding: 15px 32px 12px 0;
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.brand-page .brand-stat + .brand-stat {
+  padding-left: 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.brand-page .brand-stat strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--brand-orange);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.45rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.brand-page .brand-stat span {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   DOKUMENTASI
+   ========================================================= */
+
+.brand-profile-documentation {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.brand-page .brand-dokumentasi-placeholder {
+  min-height: 280px;
+  padding: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--brand-line);
+  border-radius: 28px;
+  background: linear-gradient(145deg, #ffffff, #f1f4f7);
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+/* =========================================================
+   TESTIMONI
+   ========================================================= */
+
+.brand-profile-testimonial {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(36px, 6vw, 70px);
+  border-radius: 30px;
+  background: var(--brand-orange);
+  color: var(--brand-navy);
+}
+
+.brand-profile-testimonial::after {
+  content: "“";
+  position: absolute;
+  top: -45px;
+  right: 34px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: Georgia, serif;
+  font-size: clamp(10rem, 22vw, 20rem);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.brand-profile-testimonial .brand-profile-index,
+.brand-profile-testimonial h2 {
+  position: relative;
+  z-index: 1;
+  color: var(--brand-navy);
+}
+
+.brand-page .brand-testimoni {
+  position: relative;
+  z-index: 1;
+  max-width: 930px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.brand-page .brand-testimoni p {
+  margin: 0 0 30px;
+  color: var(--brand-navy);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.45rem, 3.3vw, 3.05rem);
+  font-weight: 750;
+  font-style: normal;
+  line-height: 1.28;
+  letter-spacing: -0.035em;
+}
+
+.brand-page .brand-testimoni-nama {
+  color: var(--brand-navy);
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.brand-page .brand-testimoni-peran {
+  margin-top: 4px;
+  color: rgba(8, 37, 86, 0.65);
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+}
+
+/* =========================================================
+   MEDIA SOSIAL + CTA
+   ========================================================= */
+
+.brand-profile-end {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: 22px;
+}
+
+.brand-profile-social,
+.brand-profile-actions {
+  min-height: 210px;
+  padding: 36px;
+  border-radius: 26px;
+}
+
+.brand-profile-social {
+  border: 1px solid var(--brand-line);
+  background: var(--brand-surface);
+}
+
+.brand-page .brand-sosial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand-page .brand-sosial a {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-line);
+  border-radius: 15px;
+  background: #ffffff;
+  color: var(--brand-navy);
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.brand-page .brand-sosial a:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-orange-strong);
+  background: var(--brand-orange-soft);
+}
+
+.brand-page .brand-sosial svg {
+  width: 19px;
+  height: 19px;
+}
+
+.brand-profile-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: var(--brand-navy);
+}
+
+.brand-page .brand-cta-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.brand-page .brand-cta-row a {
+  min-height: 50px;
+  padding: 13px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.brand-page .brand-cta-row .btn-primary {
+  border: 1px solid var(--brand-orange);
+  background: var(--brand-orange);
+  color: var(--brand-navy);
+  box-shadow: none;
+}
+
+.brand-page .brand-cta-row .komp-cta-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #ffffff;
+}
+
+.brand-page .brand-cta-row a:hover {
+  transform: translateY(-2px);
+}
+
+.brand-page .brand-cta-row .komp-cta-secondary:hover {
+  background: #ffffff;
+  color: var(--brand-navy);
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.brand-page a:focus-visible {
+  outline: 3px solid var(--brand-blue);
+  outline-offset: 4px;
+}
+
+.brand-profile-hero a:focus-visible,
+.brand-profile-actions a:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+  .brand-profile-hero__inner {
+    min-height: auto;
+    padding-block: 58px;
+    grid-template-columns: minmax(0, 1fr) minmax(270px, 350px);
+    gap: 40px;
+  }
+
+  .brand-profile-logo-panel {
+    min-height: 270px;
+    padding: 34px;
+  }
+
+  .brand-profile-program {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "target fields"
+      "events events";
+  }
+
+  .brand-profile-documentation,
+  .brand-profile-end {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-profile-documentation {
+    gap: 26px;
+  }
+
+  .brand-profile-social,
+  .brand-profile-actions {
+    min-height: auto;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+  .brand-profile-hero__inner,
+  .brand-profile-jump__inner,
+  .brand-profile-content {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .brand-profile-hero__inner {
+    padding-block: 38px 44px;
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .brand-profile-back {
+    margin-bottom: 26px;
+  }
+
+  .brand-profile-hero h1 {
+    font-size: clamp(2.35rem, 11.4vw, 4.4rem);
+  }
+
+  .brand-profile-tagline {
+    margin-top: 17px;
+    font-size: 0.98rem;
+  }
+
+  .brand-profile-logo-panel {
+    min-height: 210px;
+    padding: 30px 25px;
+    border-radius: 24px;
+  }
+
+  .brand-profile-logo-panel img {
+    width: min(100%, 230px);
+    max-height: 110px;
+  }
+
+  .brand-profile-jump a {
+    min-height: 52px;
+    padding-inline: 12px;
+    font-size: 0.72rem;
+  }
+
+  .brand-profile-content {
+    padding-block: 64px 80px;
+  }
+
+  .brand-profile-content > section + section {
+    margin-top: 72px;
+  }
+
+  .brand-profile-pair,
+  .brand-profile-program {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-profile-pair {
+    border-bottom: 0;
+  }
+
+  .brand-profile-copy-block {
+    padding-block: 30px;
+    border-bottom: 1px solid var(--brand-line);
+  }
+
+  .brand-profile-copy-block + .brand-profile-copy-block {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .brand-profile-program {
+    grid-template-areas:
+      "target"
+      "events"
+      "fields";
+  }
+
+  .brand-profile-target,
+  .brand-profile-events,
+  .brand-profile-fields,
+  .brand-profile-social,
+  .brand-profile-actions {
+    padding: 27px 22px;
+    border-radius: 21px;
+  }
+
+  .brand-page .brand-event-list li {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .brand-page .brand-event-list span {
+    max-width: none;
+    text-align: left;
+  }
+
+  .brand-profile-achievement {
+    padding: 29px 24px;
+    border-radius: 22px;
+  }
+
+  .brand-page .brand-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-page .brand-stat,
+  .brand-page .brand-stat + .brand-stat {
+    padding: 22px 0;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.17);
+  }
+
+  .brand-page .brand-stat:last-child {
+    border-bottom: 0;
+  }
+
+  .brand-page .brand-dokumentasi-placeholder {
+    min-height: 220px;
+    padding: 26px;
+    border-radius: 22px;
+  }
+
+  .brand-profile-testimonial {
+    padding: 34px 24px;
+    border-radius: 22px;
+  }
+
+  .brand-profile-testimonial::after {
+    top: -25px;
+    right: 10px;
+  }
+
+  .brand-page .brand-testimoni p {
+    font-size: clamp(1.35rem, 7.5vw, 2rem);
+  }
+
+  .brand-profile-actions {
+    align-items: stretch;
+  }
+
+  .brand-page .brand-cta-row {
+    justify-content: stretch;
+    flex-direction: column;
+  }
+
+  .brand-page .brand-cta-row a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-profile-hero__inner,
+  .brand-profile-jump__inner,
+  .brand-profile-content {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .brand-profile-target,
+  .brand-profile-events,
+  .brand-profile-fields,
+  .brand-profile-social,
+  .brand-profile-actions {
+    padding-inline: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-page *,
+  .brand-page *::before,
+  .brand-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

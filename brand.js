@@ -8,7 +8,10 @@
 
   document.title = b.nama + ' — Ekosistem PUSKANAS';
 
-  document.getElementById('logo').src = b.logo;
+  // Resolve aset relatif terhadap lokasi brand.js di root project, bukan terhadap
+  // halaman /brand/*.html. Ini menjaga path logo tetap benar di semua halaman brand.
+  const projectRoot = new URL('./', document.currentScript.src);
+  document.getElementById('logo').src = new URL(b.logo, projectRoot).href;
   document.getElementById('logo').alt = 'Logo ' + b.nama;
   document.getElementById('nama').textContent = b.nama;
   document.getElementById('tagline').textContent = b.tagline;
