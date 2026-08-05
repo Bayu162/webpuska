@@ -1,9 +1,3 @@
-/* =========================================================
-   HALAMAN DETAIL BRAND
-   CSS khusus halaman brand. Seluruh selector di-scope melalui
-   body.brand-page agar tidak mengubah halaman lain.
-   ========================================================= */
-
 .brand-page {
   --brand-navy: #082556;
   --brand-blue: #155faa;
@@ -875,5 +869,159 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* =========================================================
+   NAVBAR HALAMAN BRAND — COMPACT FIX
+   Hanya berlaku di halaman dengan body.brand-page
+   ========================================================= */
+
+.brand-page > header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 64px !important;
+  min-height: 64px !important;
+  padding: 0 !important;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(8, 37, 86, 0.08);
+  box-shadow: 0 4px 16px rgba(8, 37, 86, 0.045);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.brand-page > header .header-inner {
+  width: min(1180px, calc(100% - 48px));
+  height: 64px !important;
+  min-height: 64px !important;
+  margin-inline: auto;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand-page > header .logo {
+  flex: 0 0 auto;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.brand-page > header .logo img {
+  display: block;
+  width: auto !important;
+  height: 30px !important;
+  max-width: none !important;
+  max-height: 30px !important;
+  object-fit: contain;
+}
+
+.brand-page > header nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+.brand-page > header .btn-app {
+  flex: 0 0 auto;
+  min-width: 0 !important;
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 8px 16px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-blue);
+  border-radius: 999px;
+  background: var(--brand-blue);
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem !important;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(21, 95, 170, 0.16);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.brand-page > header .btn-app:hover {
+  transform: translateY(-1px);
+  background: #0f4f94;
+  box-shadow: 0 9px 18px rgba(21, 95, 170, 0.22);
+}
+
+.brand-page > header .btn-app:focus-visible,
+.brand-page > header .logo:focus-visible {
+  outline: 3px solid var(--brand-orange);
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .brand-page > header {
+    height: 58px !important;
+    min-height: 58px !important;
+  }
+
+  .brand-page > header .header-inner {
+    width: calc(100% - 28px);
+    height: 58px !important;
+    min-height: 58px !important;
+    gap: 12px;
+  }
+
+  .brand-page > header .logo img {
+    height: 27px !important;
+    max-height: 27px !important;
+  }
+
+  .brand-page > header nav {
+    display: none;
+  }
+
+  .brand-page > header .btn-app {
+    min-height: 36px !important;
+    padding: 8px 13px !important;
+    font-size: 0.74rem !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand-page > header .header-inner {
+    width: calc(100% - 20px);
+    gap: 8px;
+  }
+
+  .brand-page > header .logo img {
+    height: 24px !important;
+    max-height: 24px !important;
+  }
+
+  .brand-page > header .btn-app {
+    min-height: 34px !important;
+    padding-inline: 11px !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-page > header .btn-app {
+    transition: none;
+  }
+
+  .brand-page > header .btn-app:hover {
+    transform: none;
   }
 }
