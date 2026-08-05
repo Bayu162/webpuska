@@ -598,6 +598,7 @@ footer::after {
 .komp-filter {
   background: var(--white);
   padding-top: 30px;
+  padding-bottom: 60px;
 }
 .komp-filter-inner {
   max-width: 1360px;
