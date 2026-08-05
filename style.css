@@ -1336,17 +1336,18 @@ footer::after {
 }
 
 .ekosistem-inner {
-  max-width: 1360px;
+  max-width: none;
   margin: 0;
 }
 
 .ekosistem-panel {
   display: grid;
   grid-template-columns: minmax(290px, 0.8fr) minmax(0, 1.72fr);
+  width: 100%;
   overflow: hidden;
-  border: 1px solid rgba(21, 95, 170, 0.12);
+  border: 0;
   background: var(--ekosistem-cream);
-  box-shadow: 0 26px 70px -48px rgba(13, 71, 127, 0.44);
+  box-shadow: none;
 }
 
 .ekosistem-intro {
@@ -1354,7 +1355,7 @@ footer::after {
   isolation: isolate;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 610px;
   padding: clamp(38px, 4vw, 58px);
   color: var(--ekosistem-blue-dark);
@@ -3382,18 +3383,19 @@ footer::after {
 }
 
 .alasan-inner {
-  max-width: 1360px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
 }
 
 .alasan-panel {
   display: grid;
-  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.65fr);
+  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.6fr);
+  width: 100%;
   min-height: 560px;
-  border: 1px solid rgba(21, 95, 170, 0.12);
   overflow: hidden;
+  border: 0;
   background: var(--alasan-cream);
-  box-shadow: 0 26px 70px -48px rgba(13, 71, 127, 0.44);
+  box-shadow: none;
 }
 
 .alasan-intro {
@@ -3401,7 +3403,7 @@ footer::after {
   isolation: isolate;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: clamp(36px, 4vw, 58px);
   color: #fff;
   background:
