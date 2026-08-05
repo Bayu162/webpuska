@@ -90,5 +90,12 @@ const BRAND = {
     ],
     testimoni: { isi: 'Anak saya jadi lebih percaya diri dan senang belajar setelah ikut GCC SD bareng teman-teman satu timnya.', nama: 'Orang Tua Peserta GCC SD', peran: 'Wali Murid' },
     sosial: { instagram: '#', tiktok: '#', youtube: '#' }
+  },
+  porosnas: {
+    nama: 'POROSNAS',
+    logo: 'assets/images/porosnas.png',
+    tagline: 'Pusat Olimpiade, Riset, dan Observasi Sains Nasional',
+    meta: ['Ekosistem PUSKANAS'],
+    detailUrl: null
   }
 };
