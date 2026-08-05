@@ -1120,6 +1120,7 @@ footer::after {
   width: 100%;
   max-width: 560px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .akses-grid {

@@ -11,6 +11,59 @@
 <link rel="stylesheet" href="assets/css/brand-orbit.css">
 
 
+
+<style>
+/* Samakan header Temukan Kompetisi dengan Papan Informasi */
+.komp-filter {
+  padding-top: 0;
+}
+
+.komp-filter-inner {
+  max-width: none;
+  margin: 0;
+}
+
+.komp-filter-heading {
+  width: min(100%, 1360px);
+  margin-inline: auto;
+  padding: 70px 44px 32px;
+}
+
+.komp-filter .komp-filter-heading h2 {
+  margin: 0 0 12px;
+  color: var(--ink-900);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.7rem, 2.4vw + 1rem, 2.3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.komp-filter .komp-filter-heading p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--body-600);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .komp-filter-heading {
+    padding: 56px 24px 28px;
+  }
+
+  .komp-filter .komp-filter-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .komp-filter .komp-filter-heading p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="info-bar" aria-label="Informasi dan pengumuman">
@@ -144,8 +197,11 @@
  
   <section class="komp-filter" id="filter-kompetisi">
     <div class="komp-filter-inner">
-      <h2>Temukan Kompetisi yang Sesuai untukmu</h2>
-      <p>Saring kompetisi berdasarkan brand, jenjang, status, bulan pelaksanaan, dan metode — semua diproses langsung di browser kamu.</p>
+      <div class="komp-filter-heading">
+        <h2>Temukan Kompetisi yang Sesuai untukmu</h2>
+        <p>Saring kompetisi berdasarkan brand, jenjang, status, bulan pelaksanaan, dan metode — semua diproses langsung di browser kamu.</p>
+      </div>
+
       <section class="download-app">
         <div class="download-app-inner">
           <div class="download-copy">
@@ -304,8 +360,10 @@
   <section class="akses-cepat">
     <div class="papan-inner">
       <div class="papan-head">
-        <h2>Akses Cepat Peserta</h2>
-        <p>Bagian ini membantu peserta menuju informasi yang paling sering dicari.</p>
+        <div>
+          <h2>Akses Cepat Peserta</h2>
+          <p>Bagian ini membantu peserta menuju informasi yang paling sering dicari.</p>
+        </div>
       </div>
 
       <nav class="akses-grid" aria-label="Menu akses cepat">
