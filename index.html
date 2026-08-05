@@ -11,6 +11,333 @@
 <link rel="stylesheet" href="assets/css/brand-orbit.css">
 
 
+  <style>
+    /* =====================================================
+       KURASI INDEX - SATU PANEL MENYATU
+       Hanya berlaku pada section #kurasi
+       ===================================================== */
+    .kurasi-section.kurasi-v4 {
+      --kurasi-blue: #155faa;
+      --kurasi-blue-dark: #0d477f;
+      --kurasi-yellow: #fcc910;
+      --kurasi-orange: #fc7801;
+      --kurasi-cream: #fff9e9;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      background: var(--kurasi-cream);
+    }
+
+    .kurasi-v4__inner {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+    }
+
+    .kurasi-v4__panel {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.6fr);
+      width: 100%;
+      min-height: 660px;
+      overflow: hidden;
+      border: 0;
+      border-radius: 0;
+      background: var(--kurasi-cream);
+      box-shadow: none;
+    }
+
+    .kurasi-v4__intro {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(38px, 4.5vw, 64px);
+      color: var(--kurasi-blue-dark);
+      background: linear-gradient(150deg, var(--kurasi-yellow) 0%, #f4aa1c 56%, var(--kurasi-orange) 100%);
+    }
+
+    .kurasi-v4__intro::after {
+      content: "";
+      position: absolute;
+      right: -56px;
+      bottom: -72px;
+      z-index: -1;
+      width: 220px;
+      height: 220px;
+      border: 34px solid rgba(21, 95, 170, 0.11);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .kurasi-v4 .kurasi-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      min-height: 32px;
+      margin-bottom: 22px;
+      padding: 7px 13px;
+      border: 1px solid rgba(21, 95, 170, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.28);
+      color: var(--kurasi-blue-dark);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .kurasi-v4__intro h2 {
+      max-width: 470px;
+      margin: 0 0 20px;
+      color: var(--kurasi-blue-dark);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(2rem, 2.4vw + 0.7rem, 3.15rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+    }
+
+    .kurasi-v4__intro > p {
+      max-width: 480px;
+      margin: 0;
+      color: rgba(12, 71, 127, 0.82);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .kurasi-v4__intro > p strong {
+      color: var(--kurasi-blue-dark);
+      font-weight: 700;
+    }
+
+    .kurasi-v4__disclaimer {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      margin-top: 38px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(21, 95, 170, 0.18);
+    }
+
+    .kurasi-v4__disclaimer-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.32);
+      color: var(--kurasi-blue-dark);
+    }
+
+    .kurasi-v4__disclaimer-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .kurasi-v4__disclaimer p {
+      margin: 0;
+      color: rgba(12, 71, 127, 0.8);
+      font-size: 0.78rem;
+      line-height: 1.62;
+    }
+
+    .kurasi-v4__disclaimer strong,
+    .kurasi-v4__disclaimer a {
+      color: var(--kurasi-blue-dark);
+      font-weight: 700;
+    }
+
+    .kurasi-v4__disclaimer a {
+      text-underline-offset: 3px;
+    }
+
+    .kurasi-v4__content {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(26px, 3.4vw, 48px);
+      background: var(--kurasi-cream);
+    }
+
+    .kurasi-v4__content-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 0 20px;
+      color: var(--kurasi-blue-dark);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .kurasi-v4 .kurasi-events {
+      display: grid;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .kurasi-v4 .kurasi-event-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      min-height: 78px;
+      padding: 17px 20px;
+      border: 1px solid rgba(21, 95, 170, 0.11);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 12px 28px -26px rgba(13, 71, 127, 0.58);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .kurasi-v4 .kurasi-event-row:hover {
+      transform: translateY(-2px);
+      border-color: rgba(21, 95, 170, 0.24);
+      box-shadow: 0 18px 36px -28px rgba(13, 71, 127, 0.7);
+    }
+
+    .kurasi-v4 .kurasi-event-title {
+      margin: 0 0 4px;
+      color: var(--kurasi-blue-dark);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 0.92rem;
+      font-weight: 750;
+      letter-spacing: -0.012em;
+      line-height: 1.4;
+    }
+
+    .kurasi-v4 .kurasi-event-meta {
+      color: rgba(12, 71, 127, 0.72);
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
+    .kurasi-v4 .kurasi-event-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .kurasi-v4 .kurasi-badge--selesai {
+      background: rgba(21, 95, 170, 0.1);
+      color: var(--kurasi-blue);
+    }
+
+    .kurasi-v4 .kurasi-badge--proses {
+      background: rgba(252, 201, 16, 0.2);
+      color: #8a6500;
+    }
+
+    .kurasi-v4 .kurasi-badge--revisi {
+      background: rgba(252, 120, 1, 0.12);
+      color: #b95400;
+    }
+
+    .kurasi-v4 .kurasi-badge--belum {
+      background: rgba(83, 103, 126, 0.12);
+      color: #53677e;
+    }
+
+    @media (max-width: 1080px) {
+      .kurasi-v4__panel {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .kurasi-v4__intro {
+        justify-content: flex-start;
+        min-height: 0;
+        padding: 48px;
+      }
+
+      .kurasi-v4__intro h2,
+      .kurasi-v4__intro > p {
+        max-width: 780px;
+      }
+
+      .kurasi-v4__disclaimer {
+        max-width: 780px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .kurasi-section.kurasi-v4 {
+        padding: 0;
+      }
+
+      .kurasi-v4__intro,
+      .kurasi-v4__content {
+        padding: 32px 24px;
+      }
+
+      .kurasi-v4__intro::after {
+        right: -84px;
+        bottom: -92px;
+      }
+
+      .kurasi-v4__content-head {
+        display: none;
+      }
+
+      .kurasi-v4 .kurasi-events {
+        gap: 10px;
+      }
+
+      .kurasi-v4 .kurasi-event-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        min-height: 0;
+        padding: 17px;
+      }
+
+      .kurasi-v4 .kurasi-event-badge {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .kurasi-section.kurasi-v4 {
+        padding: 0;
+      }
+
+      .kurasi-v4__intro,
+      .kurasi-v4__content {
+        padding: 28px 20px;
+      }
+
+      .kurasi-v4__disclaimer {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kurasi-v4 .kurasi-event-row {
+        transition: none;
+      }
+
+      .kurasi-v4 .kurasi-event-row:hover {
+        transform: none;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <div class="info-bar" aria-label="Informasi dan pengumuman">
@@ -152,39 +479,10 @@
             <h2>Download the App</h2>
             <p>Cari dan daftar kompetisi favoritmu ke mana pun kamu pergi. Unduh aplikasi kami di iOS App Store atau Android Play Store.</p>
             <div class="store-badges">
-              <a
-  href="#"
-  class="store-badge"
-  aria-label="Download aplikasi PUSKANAS di Google Play"
->
-  <svg
-    class="google-play-icon"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path
-      fill="#4285F4"
-      d="M3.61 2.65c-.34.36-.54.92-.54 1.64v15.42c0 .72.2 1.28.55 1.64l.1.08L13 12.15v-.29L3.71 2.57l-.1.08z"
-    />
-    <path
-      fill="#FBBC04"
-      d="M16.2 15.35l-3.2-3.2v-.3l3.21-3.21 3.63 2.06c1.04.59 1.04 1.55 0 2.14l-3.64 2.51z"
-    />
-    <path
-      fill="#EA4335"
-      d="M13 12.15l-9.34 9.28c.35.36 1.02.4 1.86-.07l10.93-6.2-3.45-3.01z"
-    />
-    <path
-      fill="#34A853"
-      d="M13 11.85l3.45-3-10.93-6.2c-.84-.48-1.51-.43-1.86-.07L13 11.85z"
-    />
-  </svg>
-
-  <span>
-    <small>Get it on</small>
-    <strong>Google Play</strong>
-  </span>
-</a>
+              <a href="#" class="store-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 2.65c-.34.36-.54.92-.54 1.64v15.42c0 .72.2 1.28.55 1.64l.1.08L13 12.15v-.29L3.71 2.57l-.1.08z"/><path d="M16.2 15.35l-3.2-3.2v-.3l3.21-3.21 3.63 2.06c1.04.59 1.04 1.55 0 2.14l-3.64 2.51z"/><path d="M13 12.15l-9.34 9.28c.35.36 1.02.4 1.86-.07l10.93-6.2-3.45-3.01z"/><path d="M13 11.85l3.45-3-10.93-6.2c-.84-.48-1.51-.43-1.86-.07L13 11.85z"/></svg>
+                <span><small>Get it on</small><strong>Google Play</strong></span>
+              </a>
             </div>
           </div>
     
@@ -539,26 +837,32 @@
     </div>
   </section>
 
-  <section class="kurasi-section kurasi-v3" id="kurasi" aria-labelledby="kurasiTitle">
-    <div class="kurasi-v3__inner">
-      <div class="kurasi-v3__header">
-        <div class="kurasi-v3__intro">
+  <section class="kurasi-section kurasi-v4" id="kurasi" aria-labelledby="kurasiTitle">
+    <div class="kurasi-v4__inner">
+      <div class="kurasi-v4__panel">
+        <div class="kurasi-v4__intro">
           <span class="kurasi-eyebrow">Transparansi &amp; Kepercayaan Publik</span>
           <h2 id="kurasiTitle">Kurasi Ajang Kompetisi</h2>
           <p><strong>Kurasi ajang</strong> adalah proses verifikasi dan penilaian kelayakan sebuah event oleh instansi/lembaga terkait sebelum event dinyatakan resmi terkurasi. Event yang <strong>diselenggarakan</strong> oleh brand di ekosistem PUSKANAS tidak otomatis <strong>terkurasi</strong> — status ini hanya diberikan setelah melalui tahapan verifikasi dan disetujui oleh instansi terkait.</p>
+
+          <aside class="kurasi-v4__disclaimer">
+            <span class="kurasi-v4__disclaimer-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 20 5v6c0 5-3.5 9.5-8 11-4.5-1.5-8-6-8-11V5l8-3Z"/>
+                <path d="M12 8v5M12 16h.01"/>
+              </svg>
+            </span>
+            <p><strong>Penting:</strong> Status di atas ditampilkan apa adanya per event. Keputusan akhir kurasi sepenuhnya berada di tangan instansi/lembaga terkait, bukan ditentukan oleh PUSKANAS. Lihat <a href="faq.html">FAQ kategori Kurasi</a> untuk pertanyaan lainnya.</p>
+          </aside>
         </div>
 
-        <aside class="kurasi-v3__disclaimer">
-          <p><strong>Penting:</strong> Status di atas ditampilkan apa adanya per event. Keputusan akhir kurasi sepenuhnya berada di tangan instansi/lembaga terkait, bukan ditentukan oleh PUSKANAS. Lihat <a href="faq.html">FAQ kategori Kurasi</a> untuk pertanyaan lainnya.</p>
-        </aside>
-      </div>
-
-      <div class="kurasi-v3__panel">
-        <div class="kurasi-v3__panel-head" aria-hidden="true">
-          <span>Informasi Kompetisi</span>
-          <span>Status</span>
+        <div class="kurasi-v4__content">
+          <div class="kurasi-v4__content-head" aria-hidden="true">
+            <span>Informasi Kompetisi</span>
+            <span>Status</span>
+          </div>
+          <div class="kurasi-events" id="kurasiEvents"></div>
         </div>
-        <div class="kurasi-events" id="kurasiEvents"></div>
       </div>
     </div>
   </section>
