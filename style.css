@@ -1039,7 +1039,7 @@ footer::after {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 0;
+  padding: 82px 0;
   background:
     radial-gradient(
       circle at 8% 18%,
