@@ -95,7 +95,12 @@ const BRAND = {
     nama: 'POROSNAS',
     logo: 'assets/images/porosnas.png',
     tagline: 'Pusat Olimpiade, Riset, dan Observasi Sains Nasional',
-    meta: ['Ekosistem PUSKANAS'],
-    detailUrl: null
+    deskripsi: 'Brand dalam ekosistem PUSKANAS yang berfokus pada olimpiade, riset, dan observasi sains.',
+    karakter: ['Ilmiah', 'Eksploratif', 'Berorientasi riset'],
+    meta: ['Olimpiade', 'Riset', 'Observasi Sains'],
+    tentang: 'POROSNAS adalah Pusat Olimpiade, Riset, dan Observasi Sains Nasional yang menjadi bagian dari ekosistem PUSKANAS.',
+    positioning: 'POROSNAS menghadirkan ruang yang berfokus pada tiga area utama: olimpiade, riset, dan observasi sains.',
+    bidangKompetisi: ['Olimpiade', 'Riset', 'Observasi Sains'],
+    detailUrl: 'brand/porosnas.html'
   }
 };
