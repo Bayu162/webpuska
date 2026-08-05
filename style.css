@@ -928,6 +928,8 @@ footer::after {
 /* ---------- Download App ---------- */
 .download-app {
   background: var(--blue-100);
+  box-shadow: 0 0 0 100vmax var(--blue-100);
+  clip-path: inset(0 -100vmax);
 }
 .download-app-inner {
   max-width: 1360px;
@@ -4497,7 +4499,9 @@ footer::after {
   border-radius: 20px;
   background: #f4b12b;
   box-shadow: none;
-  transition: transform 180ms ease, background-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
 }
 
 .kurasi-v3 .kurasi-event-row::before {
