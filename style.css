@@ -2854,7 +2854,7 @@ footer::after {
 .dock-glow {
   content: "";
   position: absolute;
-inset: -1px;
+inset: -px;
   z-index: 0;
   border-radius: 50%;
   opacity: 0;
