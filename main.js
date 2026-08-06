@@ -96,17 +96,41 @@ render();
 
 setInterval(() => goTo((current + 1) % slides.length), 5000);
 
-/* ---------- Dock: flip icon->label ditangani CSS (:hover), JS cuma urus scroll ke section ---------- */
+/* ---------- Dock: hover/klik/scroll ---------- */
 const dock = document.getElementById("dock");
 const dockItems = dock.querySelectorAll(".dock-item");
 
+function setActiveDockItem(activeItem) {
+  dockItems.forEach((item) => item.classList.toggle("active", item === activeItem));
+}
+
 dockItems.forEach((item) => {
   const targetSelector = item.dataset.target;
-  if (!targetSelector) return; // belum ada tujuan (mis. "Bantuan"), biarkan non-aktif dulu
+  if (!targetSelector) return; // belum ada tujuan, biarkan non-aktif dulu
   item.addEventListener("click", () => {
+    setActiveDockItem(item); // langsung aktif, nggak nunggu scroll selesai
     document.querySelector(targetSelector)?.scrollIntoView({ behavior: "smooth" });
   });
 });
+
+// Scrollspy: section mana yang lagi kelihatan di layar -> dock item-nya jadi aktif (full icon)
+const dockSections = [...dockItems]
+  .map((item) => ({ item, el: document.querySelector(item.dataset.target || "") }))
+  .filter((entry) => entry.el);
+
+if (dockSections.length) {
+  const dockObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const match = dockSections.find((s) => s.el === entry.target);
+        if (match) setActiveDockItem(match.item);
+      });
+    },
+    { rootMargin: "-45% 0px -45% 0px" }, // "aktif" saat section lewat tengah layar
+  );
+  dockSections.forEach((s) => dockObserver.observe(s.el));
+}
 
 // ---------- Marquee Papan Pengumuman (jalan otomatis + bisa digeser tombol) ----------
 const papanMarquee = document.querySelector(".papan-marquee");

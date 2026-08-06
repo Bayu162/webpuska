@@ -2850,11 +2850,24 @@ footer::after {
   cursor: pointer;
   border-radius: 16px;
 }
-/* Glow radial-gradient per item saat hover, warna beda tiap ikon */
-
-.dock-face svg:hover{
+/* Glow radial-gradient per item saat hover/aktif, warna beda tiap ikon */
+.dock-glow {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition:
+    opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dock-item:hover .dock-glow,
+.dock-item.active .dock-glow {
   opacity: 1;
-  transform: scale(1.5);
+  transform: scale(1.8);
 }
 .dock-item:nth-child(1) .dock-glow {
   background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(37, 99, 235, 0.07) 50%, rgba(29, 78, 216, 0) 100%);
@@ -2882,15 +2895,16 @@ footer::after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
   padding: 6px 10px;
   border-radius: 16px;
   color: #525252;
   transform-origin: center bottom;
   transition: transform 0.2s ease;
 }
-.dock-face:hover{
-  
+/* Hover ATAU section-nya lagi aktif di layar: jadi full icon, label disembunyikan */
+.dock-item:hover .dock-face,
+.dock-item.active .dock-face {
+  transform: scale(1.15);
 }
 .dock-face svg {
   width: 20px;
@@ -2899,35 +2913,48 @@ footer::after {
   flex-shrink: 0;
   transition: stroke 0.2s ease;
 }
-.dock-item:nth-child(1):hover .dock-face svg {
+.dock-item:nth-child(1):hover .dock-face svg,
+.dock-item:nth-child(1).active .dock-face svg {
   stroke: #3b82f6;
-  transform: scale(2);
-  transition: all ease 0.6s;
 }
-.dock-item:nth-child(2):hover .dock-face svg {
+.dock-item:nth-child(2):hover .dock-face svg,
+.dock-item:nth-child(2).active .dock-face svg {
   stroke: #f97316;
-  transform: scale(1.15);
 }
-.dock-item:nth-child(3):hover .dock-face svg {
+.dock-item:nth-child(3):hover .dock-face svg,
+.dock-item:nth-child(3).active .dock-face svg {
   stroke: #9333ea;
-  transform: scale(1.15);
 }
-.dock-item:nth-child(4):hover .dock-face svg {
+.dock-item:nth-child(4):hover .dock-face svg,
+.dock-item:nth-child(4).active .dock-face svg {
   stroke: #22c55e;
-  transform: scale(1.15);
 }
-.dock-item:nth-child(5):hover .dock-face svg {
+.dock-item:nth-child(5):hover .dock-face svg,
+.dock-item:nth-child(5).active .dock-face svg {
   stroke: #14b8a6;
-  transform: scale(1.15);
 }
-.dock-item:nth-child(6):hover .dock-face svg {
+.dock-item:nth-child(6):hover .dock-face svg,
+.dock-item:nth-child(6).active .dock-face svg {
   stroke: #ef4444;
-  transform: scale(1.15);
 }
 .dock-label {
   font-size: 0.7rem;
   font-weight: 600;
   white-space: nowrap;
+  margin-top: 3px;
+  max-height: 20px;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    opacity 0.2s ease,
+    max-height 0.2s ease,
+    margin-top 0.2s ease;
+}
+.dock-item:hover .dock-label,
+.dock-item.active .dock-label {
+  opacity: 0;
+  max-height: 0;
+  margin-top: 0;
 }
 
 @media (max-width: 640px) {
