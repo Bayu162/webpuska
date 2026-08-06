@@ -28,7 +28,7 @@ body {
   color: var(--ink-900);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: 36px; /* ruang untuk info-bar fixed di atas header */
+  padding-top: 76px; /* ruang untuk info-bar fixed di atas header */
 }
 
 .wrap {
