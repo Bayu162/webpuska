@@ -126,6 +126,14 @@ dock.addEventListener("mouseleave", () => {
   });
 });
 
+dockItems.forEach((item) => {
+  const targetSelector = item.dataset.target;
+  if (!targetSelector) return; // belum ada tujuan (mis. "Bantuan"), biarkan non-aktif dulu
+  item.addEventListener("click", () => {
+    document.querySelector(targetSelector)?.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
 // ---------- Marquee Papan Pengumuman (jalan otomatis + bisa digeser tombol) ----------
 const papanMarquee = document.querySelector(".papan-marquee");
 const papanTrack = document.getElementById("papanTrack");
