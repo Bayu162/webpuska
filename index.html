@@ -704,69 +704,74 @@
     </div>
   </footer>
 
-  <!-- Dock navigasi, mengikuti menu header navbar pada brief -->
+  <!-- Dock navigasi (gaya hover-gradient-nav-bar: icon + label selalu tampil) -->
   <div class="dock-wrap">
-    <div class="dock" id="dock">
-      <div class="dock-item" data-base="44" data-target="#filter-kompetisi">
-        <span class="dock-tooltip">Kompetisi</span>
-        <span class="dock-icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 21H16M12 17V21M7 4H17V9C17 12 15 14 12 14C9 14 7 12 7 9V4Z" stroke-width="2"/>
-            <path d="M5 4H7V8C7 9 6 10 5 10C4 10 3 9 3 8V6C3 5 4 4 5 4Z" stroke-width="2"/>
-            <path d="M19 4H17V8C17 9 18 10 19 10C20 10 21 9 21 8V6C21 5 20 4 19 4Z" stroke-width="2"/>
-          </svg>
+    <nav class="dock" id="dock">
+      <div class="dock-item" data-target="#filter-kompetisi">
+        <span class="dock-glow"></span>
+        <span class="dock-face">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 21H16M12 17V21M7 4H17V9C17 12 15 14 12 14C9 14 7 12 7 9V4Z" stroke-width="2"/>
+              <path d="M5 4H7V8C7 9 6 10 5 10C4 10 3 9 3 8V6C3 5 4 4 5 4Z" stroke-width="2"/>
+              <path d="M19 4H17V8C17 9 18 10 19 10C20 10 21 9 21 8V6C21 5 20 4 19 4Z" stroke-width="2"/>
+            </svg>
+            <span class="dock-label">Kompetisi</span>
         </span>
       </div>
-      <div class="dock-item" data-base="44" data-target="#ekosistem-brand">
-        <span class="dock-tooltip">Brand Kami</span>
-        <span class="dock-icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7" rx="1.5" stroke-width="2"/>
-            <rect x="14" y="3" width="7" height="7" rx="1.5" stroke-width="2"/>
-            <rect x="3" y="14" width="7" height="7" rx="1.5" stroke-width="2"/>
-            <rect x="14" y="14" width="7" height="7" rx="1.5" stroke-width="2"/>
-          </svg>
+      <div class="dock-item" data-target="#ekosistem-brand">
+        <span class="dock-glow"></span>
+        <span class="dock-face">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" stroke-width="2"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5" stroke-width="2"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5" stroke-width="2"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5" stroke-width="2"/>
+            </svg>
+            <span class="dock-label">Brand Kami</span>
         </span>
       </div>
-      <div class="dock-item" data-base="44" data-target="#papan-pengumuman">
-        <span class="dock-tooltip">Pengumuman</span>
-        <span class="dock-icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 10V14C3 15 4 16 5 16H6L10 21H12L10 16H16L21 20V4L16 8H10H6C5 8 3 9 3 10Z" stroke-width="2"/>
-          </svg>
+      <div class="dock-item" data-target="#papan-pengumuman">
+        <span class="dock-glow"></span>
+        <span class="dock-face">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 10V14C3 15 4 16 5 16H6L10 21H12L10 16H16L21 20V4L16 8H10H6C5 8 3 9 3 10Z" stroke-width="2"/>
+            </svg>
+            <span class="dock-label">Pengumuman</span>
         </span>
       </div>
-      <div class="dock-item" data-base="44" data-target="#kurasi">
-        <span class="dock-tooltip">Kurasi &amp; Legalitas</span>
-        <span class="dock-icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L20 5V11C20 16 16.5 20.5 12 22C7.5 20.5 4 16 4 11V5L12 2Z" stroke-width="2"/>
-            <path d="M9 12L11 14L15 10" stroke-width="2"/>
-          </svg>
+      <div class="dock-item" data-target="#kurasi">
+        <span class="dock-glow"></span>
+        <span class="dock-face">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L20 5V11C20 16 16.5 20.5 12 22C7.5 20.5 4 16 4 11V5L12 2Z" stroke-width="2"/>
+              <path d="M9 12L11 14L15 10" stroke-width="2"/>
+            </svg>
+            <span class="dock-label">Kurasi</span>
         </span>
       </div>
-      <div class="dock-item" data-base="44" data-target="#alasan">
-        <span class="dock-tooltip">Tentang Kami</span>
-        <span class="dock-icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9" stroke-width="2"/>
-            <path d="M12 11V16" stroke-width="2"/>
-            <circle cx="12" cy="8" r="1" fill="#525252" stroke="none"/>
-          </svg>
-        </span>
-        
-      </div>
-      <div class="dock-item" data-base="44" data-target="#akses-cepat">
-        <span class="dock-tooltip">Bantuan</span>
-        <span class="dock-icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9" stroke-width="2"/>
-            <path d="M9.5 9C9.5 7.5 10.5 6.5 12 6.5C13.5 6.5 14.5 7.5 14.5 9C14.5 10.5 12 10.5 12 13" stroke-width="2"/>
-            <circle cx="12" cy="16.5" r="1" fill="#525252" stroke="none"/>
-          </svg>
+      <div class="dock-item" data-target="#alasan">
+        <span class="dock-glow"></span>
+        <span class="dock-face">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" stroke-width="2"/>
+              <path d="M12 11V16" stroke-width="2"/>
+              <circle cx="12" cy="8" r="1" fill="#525252" stroke="none"/>
+            </svg>
+            <span class="dock-label">Tentang</span>
         </span>
       </div>
-    </div>
+      <div class="dock-item" data-target="#akses-cepat">
+        <span class="dock-glow"></span>
+        <span class="dock-face">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" stroke-width="2"/>
+              <path d="M9.5 9C9.5 7.5 10.5 6.5 12 6.5C13.5 6.5 14.5 7.5 14.5 9C14.5 10.5 12 10.5 12 13" stroke-width="2"/>
+              <circle cx="12" cy="16.5" r="1" fill="#525252" stroke="none"/>
+            </svg>
+            <span class="dock-label">Bantuan</span>
+        </span>
+      </div>
+    </nav>
   </div>
 
 <script src="data-kompetisi.js"></script>

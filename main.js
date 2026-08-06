@@ -96,35 +96,9 @@ render();
 
 setInterval(() => goTo((current + 1) % slides.length), 5000);
 
-/* ---------- Dock: efek magnify vanilla JS (pengganti framer-motion) ---------- */
+/* ---------- Dock: flip icon->label ditangani CSS (:hover), JS cuma urus scroll ke section ---------- */
 const dock = document.getElementById("dock");
 const dockItems = dock.querySelectorAll(".dock-item");
-const BASE_SIZE = 44;
-const MAX_SIZE = 76;
-const DISTANCE = 140;
-
-function sizeFromDistance(dist) {
-  const d = Math.min(Math.abs(dist), DISTANCE);
-  const t = 1 - d / DISTANCE;
-  return BASE_SIZE + (MAX_SIZE - BASE_SIZE) * t;
-}
-
-dock.addEventListener("mousemove", (e) => {
-  dockItems.forEach((item) => {
-    const rect = item.getBoundingClientRect();
-    const center = rect.left + rect.width / 2;
-    const size = sizeFromDistance(e.clientX - center);
-    item.style.width = size + "px";
-    item.style.height = size + "px";
-  });
-});
-
-dock.addEventListener("mouseleave", () => {
-  dockItems.forEach((item) => {
-    item.style.width = ""; // biarkan CSS (termasuk breakpoint) yang menentukan ukuran dasar
-    item.style.height = "";
-  });
-});
 
 dockItems.forEach((item) => {
   const targetSelector = item.dataset.target;
