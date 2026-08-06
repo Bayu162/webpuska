@@ -2842,7 +2842,7 @@ footer::after {
   border: none;
   border-top: 1px solid rgba(229, 231, 235, 0.8);
   border-radius: 0;
-  padding: 18px 14px 10px;
+  padding: 20px 14px 10px;
   box-shadow: 0 -8px 24px -12px rgba(20, 22, 31, 0.2);
 }
 .dock-item {
@@ -2854,7 +2854,7 @@ footer::after {
 .dock-glow {
   content: "";
   position: absolute;
-  inset: -8px;
+inset: -1px;
   z-index: 0;
   border-radius: 50%;
   opacity: 0;
@@ -2887,6 +2887,12 @@ footer::after {
 .dock-item:nth-child(6) .dock-glow {
   background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, rgba(220, 38, 38, 0.07) 50%, rgba(185, 28, 28, 0) 100%);
 }
+.dock-item:nth-child(7) .dock-glow {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(79, 70, 229, 0.07) 50%, rgba(67, 56, 202, 0) 100%);
+}
+.dock-item:nth-child(8) .dock-glow {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.18) 0%, rgba(219, 39, 119, 0.07) 50%, rgba(190, 24, 93, 0) 100%);
+}
 
 .dock-face {
   position: relative;
@@ -2901,10 +2907,12 @@ footer::after {
   transform-origin: center bottom;
   transition: transform 0.2s ease;
 }
-/* Hover ATAU section-nya lagi aktif di layar: jadi full icon, label disembunyikan */
-.dock-item:hover .dock-face,
-.dock-item.active .dock-face {
+/* Hover: full icon, sedikit membesar. Section-nya lagi aktif di layar: lebih besar lagi */
+.dock-item:hover .dock-face {
   transform: scale(1.15);
+}
+.dock-item.active .dock-face {
+  transform: scale(1.3);
 }
 .dock-face svg {
   width: 20px;
@@ -2937,6 +2945,14 @@ footer::after {
 .dock-item:nth-child(6).active .dock-face svg {
   stroke: #ef4444;
 }
+.dock-item:nth-child(7):hover .dock-face svg,
+.dock-item:nth-child(7).active .dock-face svg {
+  stroke: #6366f1;
+}
+.dock-item:nth-child(8):hover .dock-face svg,
+.dock-item:nth-child(8).active .dock-face svg {
+  stroke: #ec4899;
+}
 .dock-label {
   font-size: 0.7rem;
   font-weight: 600;
@@ -2960,7 +2976,7 @@ footer::after {
 @media (max-width: 640px) {
   .dock {
     gap: 2px;
-    padding: 12px 4px 6px;
+    padding: 14px 4px 6px;
   }
   .dock-face {
     padding: 4px 6px;
