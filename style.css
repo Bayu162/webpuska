@@ -2851,22 +2851,10 @@ footer::after {
   border-radius: 16px;
 }
 /* Glow radial-gradient per item saat hover, warna beda tiap ikon */
-.dock-glow {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  z-index: 0;
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0.8);
-  pointer-events: none;
-  transition:
-    opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.dock-item:hover .dock-glow {
+
+.dock-face svg:hover{
   opacity: 1;
-  transform: scale(1.8);
+  transform: scale(1.5);
 }
 .dock-item:nth-child(1) .dock-glow {
   background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(37, 99, 235, 0.07) 50%, rgba(29, 78, 216, 0) 100%);
@@ -2901,8 +2889,8 @@ footer::after {
   transform-origin: center bottom;
   transition: transform 0.2s ease;
 }
-.dock-item:hover .dock-face {
-  transform: scale(1.15);
+.dock-face:hover{
+  
 }
 .dock-face svg {
   width: 20px;
@@ -2913,21 +2901,28 @@ footer::after {
 }
 .dock-item:nth-child(1):hover .dock-face svg {
   stroke: #3b82f6;
+  transform: scale(2);
+  transition: all ease 0.6s;
 }
 .dock-item:nth-child(2):hover .dock-face svg {
   stroke: #f97316;
+  transform: scale(1.15);
 }
 .dock-item:nth-child(3):hover .dock-face svg {
   stroke: #9333ea;
+  transform: scale(1.15);
 }
 .dock-item:nth-child(4):hover .dock-face svg {
   stroke: #22c55e;
+  transform: scale(1.15);
 }
 .dock-item:nth-child(5):hover .dock-face svg {
   stroke: #14b8a6;
+  transform: scale(1.15);
 }
 .dock-item:nth-child(6):hover .dock-face svg {
   stroke: #ef4444;
+  transform: scale(1.15);
 }
 .dock-label {
   font-size: 0.7rem;
