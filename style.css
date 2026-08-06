@@ -2871,11 +2871,11 @@ footer::after {
 }
 .dock-item:hover .dock-glow {
   opacity: 0.82;
-  transform: translate(-50%, -50%) scale(1.5);
+  transform: translate(-50%, -50%) scale(1.3);
 }
 .dock-item.active .dock-glow {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.7);
+  transform: translate(-50%, -50%) scale(1.4);
 }
 .dock-item:nth-child(1) .dock-glow {
   background: radial-gradient(
