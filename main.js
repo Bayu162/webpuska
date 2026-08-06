@@ -121,8 +121,8 @@ dock.addEventListener("mousemove", (e) => {
 
 dock.addEventListener("mouseleave", () => {
   dockItems.forEach((item) => {
-    item.style.width = BASE_SIZE + "px";
-    item.style.height = BASE_SIZE + "px";
+    item.style.width = ""; // biarkan CSS (termasuk breakpoint) yang menentukan ukuran dasar
+    item.style.height = "";
   });
 });
 
@@ -154,6 +154,7 @@ let papanAnimating = false;
 let papanAnimFrom = 0;
 let papanAnimTo = 0;
 let papanAnimStart = null;
+let papanAnimDuration = SLIDE_DURATION;
 
 function papanLoopWidth() {
   return papanTrack.scrollWidth / 2; // konten digandakan, jadi separuh = satu putaran
@@ -171,7 +172,7 @@ function papanStep(timestamp) {
 
   if (papanAnimating) {
     if (papanAnimStart === null) papanAnimStart = timestamp;
-    const t = Math.min(1, (timestamp - papanAnimStart) / SLIDE_DURATION);
+    const t = Math.min(1, (timestamp - papanAnimStart) / papanAnimDuration);
     papanOffset =
       papanAnimFrom + (papanAnimTo - papanAnimFrom) * easeOutCubic(t);
     if (t >= 1) {
@@ -198,6 +199,7 @@ function papanNudge(direction) {
   papanAnimFrom = papanOffset;
   papanAnimTo = papanOffset + step * direction;
   papanAnimStart = null;
+  papanAnimDuration = SLIDE_DURATION;
   papanAnimating = true;
 }
 
@@ -266,5 +268,11 @@ if (papanReduceMotion) {
     .querySelectorAll('.papan-card[aria-hidden="true"]')
     .forEach((card) => (card.style.display = "none"));
 } else {
+  // kartu muncul dari kanan (fade + geser tipis), tanpa menggeser posisi track
+  // sehingga tidak ada area kosong yang sempat terlihat
+  papanTrack.classList.add("is-entering");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => papanTrack.classList.remove("is-entering"));
+  });
   requestAnimationFrame(papanStep);
 }
