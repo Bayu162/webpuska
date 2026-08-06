@@ -11,22 +11,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-  </head>
+  <link rel="stylesheet" href="assets/css/components.css?v=1">
+</head>
   <body>
-    <header>
-      <div class="header-inner">
-        <a href="index.html" class="logo"
-          ><img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional"
-        /></a>
-        <nav></nav>
-        <a
-          href="https://app.puskanas.id/"
-          class="btn-app"
-          target="_blank"
-          rel="noopener"
-          >Masuk ke Aplikasi</a>
-      </div>
-    </header>
+    <!-- Navbar dimuat dari components/navbar.html -->
+  <div id="site-navbar"></div>
 
     <div class="wrap">
       <div class="pengumuman-notfound" id="notFound" hidden>
@@ -63,17 +52,11 @@
       </article>
     </div>
 
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-bottom">
-          <p class="footer-copyright">
-            © 2026 PUSKANAS. Seluruh hak cipta dilindungi.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer dimuat dari components/footer.html -->
+  <div id="site-footer"></div>
 
     <script src="data-pengumuman.js"></script>
     <script src="pengumuman.js"></script>
-  </body>
+  <script src="assets/js/components.js?v=1" defer></script>
+</body>
 </html>

@@ -9,28 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+<link rel="stylesheet" href="assets/css/components.css?v=1">
 </head>
 <body class="faq-redesign">
   <a class="faq-skip-link" href="#faq-main">Lewati ke konten utama</a>
 
-  <header class="faq-navbar">
-    <div class="faq-navbar__inner">
-      <a href="index.html" class="logo" aria-label="Buka beranda PUSKANAS">
-        <img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional">
-      </a>
-
-      <nav class="faq-navbar__actions" aria-label="Navigasi halaman FAQ">
-        <a href="index.html" class="faq-home-button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M19 12H5"/>
-            <path d="M11 18L5 12L11 6"/>
-          </svg>
-          <span>Kembali ke Beranda</span>
-        </a>
-        <a href="https://app.puskanas.id/" class="btn-app" target="_blank" rel="noopener">Masuk ke Aplikasi</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Navbar dimuat dari components/navbar.html -->
+  <div id="site-navbar"></div>
 
   <main id="faq-main">
     <section class="faq-hero-v2" aria-labelledby="faq-title">
@@ -90,15 +75,11 @@
     </div>
   </main>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-bottom">
-        <p class="footer-copyright">© 2026 PUSKANAS. Seluruh hak cipta dilindungi.</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer dimuat dari components/footer.html -->
+  <div id="site-footer"></div>
 
 <script src="data-faq.js"></script>
 <script src="faq.js"></script>
+<script src="assets/js/components.js?v=1" defer></script>
 </body>
 </html>

@@ -397,23 +397,11 @@
         }
       }
     </style>
-  </head>
+  <link rel="stylesheet" href="assets/css/components.css?v=1">
+</head>
   <body>
-    <header>
-      <div class="header-inner">
-        <a href="index.html" class="logo"
-          ><img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional"
-        /></a>
-        <nav></nav>
-        <a
-          href="https://app.puskanas.id/"
-          class="btn-app"
-          target="_blank"
-          rel="noopener"
-          >Masuk ke Aplikasi</a
-        >
-      </div>
-    </header>
+    <!-- Navbar dimuat dari components/navbar.html -->
+  <div id="site-navbar"></div>
 
     <main class="kurasi-page">
       <section class="kurasi-hero">
@@ -470,17 +458,11 @@
       </section>
     </main>
 
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-bottom">
-          <p class="footer-copyright">
-            © 2026 PUSKANAS. Seluruh hak cipta dilindungi.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer dimuat dari components/footer.html -->
+  <div id="site-footer"></div>
 
     <script src="data-kompetisi.js"></script>
     <script src="kurasi.js"></script>
-  </body>
+  <script src="assets/js/components.js?v=1" defer></script>
+</body>
 </html>

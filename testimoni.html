@@ -8,15 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/css/components.css?v=1">
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo"><img src="logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional"></a>
-      <nav></nav>
-      <a href="https://app.puskanas.id/" class="btn-app" target="_blank" rel="noopener">Masuk ke Aplikasi</a>
-    </div>
-  </header>
+  <!-- Navbar dimuat dari components/navbar.html -->
+  <div id="site-navbar"></div>
 
   <div class="wrap">
     <section class="testimoni-page">
@@ -42,15 +38,11 @@
     </section>
   </div>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-bottom">
-        <p class="footer-copyright">© 2026 PUSKANAS. Seluruh hak cipta dilindungi.</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer dimuat dari components/footer.html -->
+  <div id="site-footer"></div>
 
 <script src="data-testimoni.js"></script>
 <script src="testimoni.js"></script>
+<script src="assets/js/components.js?v=1" defer></script>
 </body>
 </html>
