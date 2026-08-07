@@ -5376,21 +5376,18 @@ body.faq-redesign {
   line-height: 1.12;
 }
 
-.kurasi-v4__intro > p {
-  max-width: 480px;
-  margin: 0;
-  color: rgba(12, 71, 127, 0.82);
-  font-size: 0.95rem;
-  line-height: 1.75;
-}
-
-.kurasi-v4__intro > p strong {
-  color: var(--kurasi-blue-dark);
+.kurasi-v4__intro >  display: inline-flex;
+  align-items: center;
+  padding: 0 40px;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--body-600);
+  opacity: 0.7;
 }
-
-.kurasi-v4__disclaimer {
-  display: grid;
+.mitra-logo img {
+  height: 36px;
+splay: grid;
   grid-template-columns: 42px minmax(0, 1fr);
   gap: 14px;
   align-items: start;
@@ -5663,6 +5660,7 @@ body.faq-redesign {
   animation: marquee 26s linear infinite;
 }
 .mitra-logo {
+  width: 350px;
   display: inline-flex;
   align-items: center;
   padding: 0 40px;
@@ -5673,7 +5671,7 @@ body.faq-redesign {
   opacity: 0.7;
 }
 .mitra-logo img {
-  height: 36px;
+  height: 66px;
   width: auto;
   object-fit: contain;
 }
