@@ -3087,26 +3087,32 @@ footer::after {
     transform: translate(-50%, -50%) scale(1.08);
   }
 
-  /* Nama section tetap muncul sebagai label aktif, tetapi popup-nya putih. */
+  /* Popup label dock mobile: putih polos, lebih lega, dan dinaikkan. */
   .dock-label {
     position: absolute;
     left: 50%;
-    bottom: 100%;
+    bottom: calc(100% + 18px);
     z-index: 3;
-    margin: 0 0 10px;
-    max-width: calc(100vw - 16px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    min-width: max-content;
+    min-height: 34px;
+    margin: 0;
+    max-width: calc(100vw - 20px);
     max-height: none;
     overflow: visible;
-    padding: 6px 11px;
-    border: 1px solid currentColor;
-    border-radius: 9px;
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 10px;
     background: #ffffff;
     font-size: 0.64rem;
     font-weight: 800;
     letter-spacing: 0.1px;
-    line-height: 1.2;
+    line-height: 1;
     white-space: nowrap;
-    box-shadow: 0 8px 20px -12px rgba(20, 22, 31, 0.28);
+    box-shadow: 0 8px 18px -12px rgba(20, 22, 31, 0.28);
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, 5px) scale(0.94);
@@ -3149,7 +3155,7 @@ footer::after {
     left: 50%;
     transform: translateX(-50%);
     border: 5px solid transparent;
-    border-top-color: #ffffff;
+    border-top-color: #111111;
   }
 
   .dock-item.active .dock-label {
