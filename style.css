@@ -5375,7 +5375,7 @@ body.faq-redesign {
   letter-spacing: -0.04em;
   line-height: 1.12;
 }
-.mitra-logo img {
+  .mitra-logo img {
   height: 36px;
 splay: grid;
   grid-template-columns: 42px minmax(0, 1fr);

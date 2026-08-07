@@ -1,1013 +1,1144 @@
+.brand-page {
+  --brand-accent: #f59a23;
+  --brand-accent-strong: #e97912;
+  --brand-accent-soft: #fff1dc;
+  --brand-secondary: #1f67d2;
+  --brand-secondary-soft: #eaf2ff;
+  --brand-ink: #0b1f3a;
+  --brand-text: #24344d;
+  --brand-muted: #66758a;
+  --brand-line: #dfe6ef;
+  --brand-surface: #ffffff;
+  --brand-page-bg: #f5f7fb;
+  --brand-success: #15803d;
+  --brand-radius-lg: 34px;
+  --brand-radius-md: 24px;
+  --brand-radius-sm: 16px;
+  --brand-shadow: 0 22px 60px rgba(11, 31, 58, 0.09);
+  --brand-shadow-soft: 0 10px 30px rgba(11, 31, 58, 0.06);
+  min-width: 0;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 8% 22%, var(--brand-secondary-soft) 0, transparent 24rem),
+    radial-gradient(circle at 92% 68%, var(--brand-accent-soft) 0, transparent 26rem),
+    var(--brand-page-bg);
+  color: var(--brand-text);
+}
+
+.brand-page[data-brand="fosnas"] {
+  --brand-accent: #1d78ad;
+  --brand-accent-strong: #0d5d91;
+  --brand-accent-soft: #e8f5fb;
+  --brand-secondary: #173d75;
+  --brand-secondary-soft: #edf3fb;
+}
+
+.brand-page[data-brand="presmanesia"] {
+  --brand-accent: #f26435;
+  --brand-accent-strong: #db4f22;
+  --brand-accent-soft: #fff0e9;
+  --brand-secondary: #0b7185;
+  --brand-secondary-soft: #e6f6f8;
+}
+
+.brand-page[data-brand="gemanesia"] {
+  --brand-accent: #13a8b8;
+  --brand-accent-strong: #078594;
+  --brand-accent-soft: #e7f8fa;
+  --brand-secondary: #d8aa18;
+  --brand-secondary-soft: #fff8dc;
+}
+
+.brand-page *,
+.brand-page *::before,
+.brand-page *::after {
+  box-sizing: border-box;
+}
+
+.brand-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.brand-page a,
+.brand-page button {
+  touch-action: manipulation;
+}
+
+.brand-page-main {
+  min-height: 70vh;
+  padding-bottom: clamp(64px, 8vw, 110px);
+}
+
 /* =========================================================
-   PUSKANAS — BRAND PROFILE PAGES
-   Scope: body.brand-page only
+   HEADER — brand pages only
    ========================================================= */
 
-   .brand-page {
-    --brand-accent: #f59a23;
-    --brand-accent-strong: #e97912;
-    --brand-accent-soft: #fff1dc;
-    --brand-secondary: #1f67d2;
-    --brand-secondary-soft: #eaf2ff;
-    --brand-ink: #0b1f3a;
-    --brand-text: #24344d;
-    --brand-muted: #66758a;
-    --brand-line: #dfe6ef;
-    --brand-surface: #ffffff;
-    --brand-page-bg: #f5f7fb;
-    --brand-success: #15803d;
-    --brand-radius-lg: 34px;
-    --brand-radius-md: 24px;
-    --brand-radius-sm: 16px;
-    --brand-shadow: 0 22px 60px rgba(11, 31, 58, 0.09);
-    --brand-shadow-soft: 0 10px 30px rgba(11, 31, 58, 0.06);
-    min-width: 0;
-    overflow-x: clip;
-    background:
-      radial-gradient(circle at 8% 22%, var(--brand-secondary-soft) 0, transparent 24rem),
-      radial-gradient(circle at 92% 68%, var(--brand-accent-soft) 0, transparent 26rem),
-      var(--brand-page-bg);
-    color: var(--brand-text);
+.brand-page > header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 68px;
+  min-height: 68px;
+  border-bottom: 1px solid rgba(11, 31, 58, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 24px rgba(11, 31, 58, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.brand-page > header .header-inner {
+  width: min(1180px, calc(100% - 48px));
+  height: 68px;
+  min-height: 68px;
+  margin-inline: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand-page > header .logo {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.brand-page > header .logo img {
+  width: auto;
+  height: 31px;
+  max-height: 31px;
+  object-fit: contain;
+}
+
+.brand-page > header .btn-app {
+  min-height: 44px;
+  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-secondary);
+  border-radius: 999px;
+  background: var(--brand-secondary);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(31, 103, 210, 0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+
+.brand-page > header .btn-app:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(31, 103, 210, 0.24);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.brand-profile-hero {
+  width: min(1180px, calc(100% - 48px));
+  margin: 18px auto 0;
+}
+
+.brand-profile-hero__inner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 320px;
+  padding: clamp(26px, 3.6vw, 44px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(260px, 0.88fr);
+  align-items: center;
+  gap: clamp(26px, 4vw, 50px);
+  border: 1px solid rgba(11, 31, 58, 0.08);
+  border-radius: var(--brand-radius-lg);
+  background:
+    radial-gradient(circle at 100% 0%, var(--brand-secondary-soft) 0 10rem, transparent 10.1rem),
+    radial-gradient(circle at 0% 100%, var(--brand-accent-soft) 0 7rem, transparent 7.1rem),
+    linear-gradient(135deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: var(--brand-shadow);
+}
+
+.brand-profile-hero__inner::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 160px;
+  height: 160px;
+  right: 24%;
+  top: -92px;
+  border: 28px solid var(--brand-accent-soft);
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+.brand-profile-hero__copy {
+  min-width: 0;
+}
+
+.brand-profile-back {
+  min-height: 44px;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 180ms ease, gap 180ms ease;
+}
+
+.brand-profile-back::before {
+  content: "←";
+  color: var(--brand-accent-strong);
+  font-size: 1.05rem;
+}
+
+.brand-profile-back:hover {
+  gap: 13px;
+  color: var(--brand-ink);
+}
+
+.brand-profile-eyebrow {
+  width: fit-content;
+  margin: 0 0 12px;
+  padding: 7px 11px;
+  border: 1px solid var(--brand-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--brand-accent-strong);
+  font-family: "Inter", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.brand-profile-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--brand-ink);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(2.45rem, 4.4vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  overflow-wrap: anywhere;
+}
+
+.brand-profile-tagline {
+  max-width: 660px;
+  margin: 15px 0 0;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.92rem, 1.2vw, 1.06rem);
+  font-weight: 550;
+  line-height: 1.58;
+}
+
+.brand-profile-hero-actions {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.brand-profile-hero-actions a,
+.brand-page .brand-cta-row a {
+  min-height: 44px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.brand-profile-hero-actions .btn-primary,
+.brand-page .brand-cta-row .btn-primary {
+  border: 1px solid var(--brand-secondary);
+  background: var(--brand-secondary);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(11, 31, 58, 0.12);
+}
+
+.brand-profile-hero-actions .komp-cta-secondary,
+.brand-page .brand-cta-row .komp-cta-secondary {
+  border: 1px solid var(--brand-line);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--brand-ink);
+}
+
+.brand-profile-hero-actions a:hover,
+.brand-page .brand-cta-row a:hover {
+  transform: translateY(-2px);
+}
+
+.brand-profile-logo-panel {
+  position: relative;
+  min-height: 220px;
+  padding: 28px 28px 54px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(11, 31, 58, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--brand-shadow-soft);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.brand-profile-logo-panel::after {
+  content: "Bagian dari Ekosistem PUSKANAS";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--brand-line);
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 750;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.brand-profile-logo-panel img {
+  width: min(100%, 240px);
+  max-height: 100px;
+  object-fit: contain;
+}
+
+/* =========================================================
+   STICKY IN-PAGE NAV
+   ========================================================= */
+
+.brand-profile-jump {
+  position: sticky;
+  top: 68px;
+  z-index: 900;
+  margin-top: 20px;
+  border-block: 1px solid rgba(11, 31, 58, 0.07);
+  background: rgba(245, 247, 251, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.brand-profile-jump__inner {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.brand-profile-jump__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.brand-profile-jump a {
+  flex: 0 0 auto;
+  min-height: 52px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.brand-profile-jump a:hover,
+.brand-profile-jump a:focus-visible {
+  color: var(--brand-ink);
+  border-bottom-color: var(--brand-accent);
+}
+
+/* =========================================================
+   CONTENT BASE
+   ========================================================= */
+
+.brand-profile-content {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+  padding-top: clamp(62px, 8vw, 96px);
+}
+
+.brand-profile-content > section {
+  scroll-margin-top: 145px;
+}
+
+.brand-profile-content > section + section {
+  margin-top: clamp(54px, 7vw, 88px);
+}
+
+.brand-profile-section-heading {
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+
+.brand-profile-section-heading .brand-profile-kicker,
+.brand-profile-kicker {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--brand-accent-strong);
+  font-family: "Inter", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.brand-profile-content h2,
+.brand-profile-content h3 {
+  margin: 0;
+  color: var(--brand-ink);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.brand-profile-content h2 {
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 1.08;
+}
+
+.brand-profile-content h3 {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.brand-profile-content p {
+  margin: 0;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.78;
+}
+
+/* =========================================================
+   ABOUT — compact bento
+   ========================================================= */
+
+.brand-profile-pair {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.brand-profile-copy-block {
+  position: relative;
+  min-width: 0;
+  min-height: 250px;
+  padding: clamp(28px, 4vw, 42px);
+  overflow: hidden;
+  border: 1px solid var(--brand-line);
+  border-radius: var(--brand-radius-md);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.brand-profile-copy-block:first-child {
+  background:
+    radial-gradient(circle at 100% 0%, var(--brand-accent-soft) 0 9rem, transparent 9.1rem),
+    rgba(255, 255, 255, 0.9);
+}
+
+.brand-profile-copy-block:last-child {
+  background:
+    radial-gradient(circle at 0% 100%, var(--brand-secondary-soft) 0 9rem, transparent 9.1rem),
+    rgba(255, 255, 255, 0.9);
+}
+
+.brand-profile-copy-block h3 {
+  margin-bottom: 16px;
+}
+
+.brand-profile-copy-block p {
+  max-width: 720px;
+}
+
+/* =========================================================
+   PROGRAM — target / event / fields
+   ========================================================= */
+
+.brand-profile-program {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  grid-template-areas:
+    "target events"
+    "fields events";
+  gap: 18px;
+}
+
+.brand-profile-target,
+.brand-profile-events,
+.brand-profile-fields {
+  min-width: 0;
+  padding: clamp(26px, 3.5vw, 36px);
+  border: 1px solid var(--brand-line);
+  border-radius: var(--brand-radius-md);
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.brand-profile-target {
+  grid-area: target;
+  background: linear-gradient(145deg, var(--brand-accent-soft), #fff 82%);
+}
+
+.brand-profile-events {
+  grid-area: events;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.brand-profile-fields {
+  grid-area: fields;
+  background: linear-gradient(145deg, var(--brand-secondary-soft), #fff 86%);
+}
+
+.brand-profile-target h3,
+.brand-profile-events h3,
+.brand-profile-fields h3 {
+  margin-bottom: 16px;
+}
+
+.brand-profile-target .brand-target {
+  color: var(--brand-ink);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: -0.035em;
+}
+
+.brand-page .brand-event-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.brand-page .brand-event-list li {
+  min-width: 0;
+  padding: 16px 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--brand-line);
+  border-radius: 15px;
+  background: #fff;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.brand-page .brand-event-list li:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-accent);
+  box-shadow: 0 9px 22px rgba(11, 31, 58, 0.06);
+}
+
+.brand-page .brand-event-list strong {
+  min-width: 0;
+  color: var(--brand-ink);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.brand-page .brand-event-list span {
+  max-width: 190px;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 650;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.brand-page .ekosistem-karakter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.brand-page .ekosistem-chip {
+  min-height: 38px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(11, 31, 58, 0.09);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand-ink);
+  font-family: "Inter", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+/* =========================================================
+   ACHIEVEMENT
+   ========================================================= */
+
+.brand-profile-achievement {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(32px, 5vw, 52px);
+  border-radius: var(--brand-radius-lg);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.09) 0 11rem, transparent 11.1rem),
+    linear-gradient(135deg, var(--brand-ink), #132d55);
+  box-shadow: var(--brand-shadow);
+}
+
+.brand-profile-achievement .brand-profile-kicker {
+  color: var(--brand-accent);
+}
+
+.brand-profile-achievement h2 {
+  margin-bottom: 32px;
+  color: #fff;
+}
+
+.brand-page .brand-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.brand-page .brand-stat {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.brand-page .brand-stat strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--brand-accent);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.brand-page .brand-stat span {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: "Inter", sans-serif;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   TESTIMONIAL
+   ========================================================= */
+
+.brand-profile-testimonial {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(210px, 0.35fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 66px);
+  padding: clamp(32px, 5vw, 56px);
+  align-items: start;
+  border: 1px solid var(--brand-line);
+  border-radius: var(--brand-radius-lg);
+  background:
+    radial-gradient(circle at 100% 0%, var(--brand-accent-soft) 0 12rem, transparent 12.1rem),
+    #fff;
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.brand-profile-testimonial__head h2 {
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+}
+
+.brand-page .brand-testimoni {
+  position: relative;
+  min-width: 0;
+  padding-top: 3px;
+}
+
+.brand-page .brand-testimoni::before {
+  content: "“";
+  position: absolute;
+  top: -32px;
+  left: -3px;
+  color: var(--brand-accent-soft);
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.brand-page .brand-testimoni p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 26px;
+  color: var(--brand-ink);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+
+.brand-page .brand-testimoni-nama {
+  color: var(--brand-ink);
+  font-family: "Inter", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.brand-page .brand-testimoni-peran {
+  margin-top: 4px;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.74rem;
+}
+
+/* =========================================================
+   SOCIAL + FINAL CTA
+   ========================================================= */
+
+.brand-profile-end {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.35fr);
+  gap: 18px;
+}
+
+.brand-profile-social,
+.brand-profile-actions {
+  min-width: 0;
+  padding: clamp(26px, 4vw, 38px);
+  border-radius: var(--brand-radius-md);
+}
+
+.brand-profile-social {
+  border: 1px solid var(--brand-line);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--brand-shadow-soft);
+}
+
+.brand-profile-social h3 {
+  margin-bottom: 18px;
+}
+
+.brand-page .brand-sosial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand-page .brand-sosial a {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--brand-ink);
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.brand-page .brand-sosial a[href="#"] {
+  display: none;
+}
+
+.brand-page .brand-sosial a:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-accent);
+  background: var(--brand-accent-soft);
+}
+
+.brand-page .brand-sosial svg {
+  width: 19px;
+  height: 19px;
+}
+
+.brand-profile-actions {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.08) 0 8rem, transparent 8.1rem),
+    var(--brand-ink);
+  color: #fff;
+}
+
+.brand-profile-actions h3 {
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.brand-profile-actions p {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.86rem;
+}
+
+.brand-page .brand-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.brand-profile-actions .brand-cta-row .btn-primary {
+  border-color: var(--brand-accent);
+  background: var(--brand-accent);
+  color: var(--brand-ink);
+}
+
+.brand-profile-actions .brand-cta-row .komp-cta-secondary {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.brand-profile-end:not(:has(.brand-profile-social .brand-sosial a:not([href="#"]))) {
+  grid-template-columns: 1fr;
+}
+
+.brand-profile-end:not(:has(.brand-profile-social .brand-sosial a:not([href="#"]))) .brand-profile-social {
+  display: none;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.brand-page > footer {
+  margin-top: 0;
+  border-top: 1px solid var(--brand-line);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.brand-page > footer .footer-inner {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.brand-page > footer .footer-bottom {
+  padding-block: 24px;
+  border: 0;
+}
+
+.brand-page > footer .footer-copyright {
+  margin: 0;
+  color: var(--brand-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.74rem;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.brand-page a:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+  .brand-profile-hero__inner {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.65fr);
+    gap: 30px;
   }
-  
-  .brand-page[data-brand="fosnas"] {
-    --brand-accent: #1d78ad;
-    --brand-accent-strong: #0d5d91;
-    --brand-accent-soft: #e8f5fb;
-    --brand-secondary: #173d75;
-    --brand-secondary-soft: #edf3fb;
+
+  .brand-profile-logo-panel {
+    min-height: 205px;
+    padding: 24px 24px 50px;
   }
-  
-  .brand-page[data-brand="presmanesia"] {
-    --brand-accent: #f26435;
-    --brand-accent-strong: #db4f22;
-    --brand-accent-soft: #fff0e9;
-    --brand-secondary: #0b7185;
-    --brand-secondary-soft: #e6f6f8;
+
+  .brand-profile-program {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "target fields"
+      "events events";
   }
-  
-  .brand-page[data-brand="gemanesia"] {
-    --brand-accent: #13a8b8;
-    --brand-accent-strong: #078594;
-    --brand-accent-soft: #e7f8fa;
-    --brand-secondary: #d8aa18;
-    --brand-secondary-soft: #fff8dc;
+
+  .brand-profile-end {
+    grid-template-columns: 1fr;
   }
-  
+
+  .brand-profile-actions {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+/* =========================================================
+   MOBILE / SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .brand-page > header {
+    height: 60px;
+    min-height: 60px;
+  }
+
+  .brand-page > header .header-inner,
+  .brand-profile-hero,
+  .brand-profile-jump__inner,
+  .brand-profile-content,
+  .brand-page > footer .footer-inner {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .brand-page > header .header-inner {
+    height: 60px;
+    min-height: 60px;
+  }
+
+  .brand-page > header .logo img {
+    height: 27px;
+    max-height: 27px;
+  }
+
+  .brand-page > header .btn-app {
+    min-height: 40px;
+    padding-inline: 14px;
+    font-size: 0.72rem;
+  }
+
+  .brand-profile-hero {
+    margin-top: 10px;
+  }
+
+  .brand-profile-hero__inner {
+    padding: 24px 20px 18px;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    border-radius: 22px;
+  }
+
+  .brand-profile-hero__inner::before {
+    width: 150px;
+    height: 150px;
+    right: -36px;
+    top: -90px;
+    border-width: 26px;
+  }
+
+  .brand-profile-back {
+    margin-bottom: 12px;
+  }
+
+  .brand-profile-hero h1 {
+    font-size: clamp(2.15rem, 10.5vw, 3.35rem);
+    line-height: 0.98;
+  }
+
+  .brand-profile-tagline {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .brand-profile-hero-actions {
+    margin-top: 18px;
+  }
+
+  .brand-profile-hero-actions a {
+    flex: 1 1 160px;
+  }
+
+  .brand-profile-logo-panel {
+    min-height: 155px;
+    padding: 20px 20px 46px;
+    border-radius: 18px;
+  }
+
+  .brand-profile-logo-panel img {
+    width: min(100%, 195px);
+    max-height: 78px;
+  }
+
+  .brand-profile-jump {
+    top: 60px;
+    margin-top: 14px;
+  }
+
+  .brand-profile-jump a {
+    min-height: 48px;
+    padding-inline: 11px;
+    font-size: 0.7rem;
+  }
+
+  .brand-profile-content {
+    padding-top: 52px;
+  }
+
+  .brand-profile-content > section {
+    scroll-margin-top: 120px;
+  }
+
+  .brand-profile-pair,
+  .brand-profile-program,
+  .brand-profile-testimonial,
+  .brand-profile-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-profile-program {
+    grid-template-areas:
+      "target"
+      "events"
+      "fields";
+  }
+
+  .brand-profile-copy-block {
+    min-height: 0;
+    padding: 26px 22px;
+    border-radius: 20px;
+  }
+
+  .brand-profile-target,
+  .brand-profile-events,
+  .brand-profile-fields,
+  .brand-profile-social,
+  .brand-profile-actions {
+    padding: 25px 21px;
+    border-radius: 20px;
+  }
+
+  .brand-page .brand-event-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 15px 16px;
+  }
+
+  .brand-page .brand-event-list span {
+    max-width: none;
+    text-align: left;
+  }
+
+  .brand-profile-achievement {
+    padding: 29px 21px;
+    border-radius: 22px;
+  }
+
+  .brand-page .brand-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-page .brand-stat {
+    padding: 18px;
+  }
+
+  .brand-profile-testimonial {
+    gap: 22px;
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+
+  .brand-page .brand-testimoni::before {
+    top: -24px;
+    font-size: 6.2rem;
+  }
+
+  .brand-profile-actions {
+    align-items: start;
+    gap: 20px;
+  }
+
+  .brand-page .brand-cta-row {
+    justify-content: stretch;
+  }
+
+  .brand-page .brand-cta-row a {
+    flex: 1 1 160px;
+  }
+}
+
+@media (max-width: 430px) {
+  .brand-page > header .header-inner,
+  .brand-profile-hero,
+  .brand-profile-jump__inner,
+  .brand-profile-content,
+  .brand-page > footer .footer-inner {
+    width: calc(100% - 20px);
+  }
+
+  .brand-page > header .logo img {
+    height: 24px;
+    max-height: 24px;
+  }
+
+  .brand-page > header .btn-app {
+    min-height: 38px;
+    padding-inline: 11px;
+    font-size: 0.68rem;
+  }
+
+  .brand-profile-hero__inner {
+    padding: 22px 16px 16px;
+  }
+
+  .brand-profile-hero h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .brand-profile-logo-panel {
+    min-height: 145px;
+  }
+
+  .brand-profile-hero-actions,
+  .brand-page .brand-cta-row {
+    flex-direction: column;
+  }
+
+  .brand-profile-hero-actions a,
+  .brand-page .brand-cta-row a {
+    width: 100%;
+    flex-basis: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .brand-page *,
   .brand-page *::before,
   .brand-page *::after {
-    box-sizing: border-box;
-  }
-  
-  .brand-page-main img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .brand-page a,
-  .brand-page button {
-    touch-action: manipulation;
-  }
-  
-  .brand-page-main {
-    min-height: 70vh;
-    padding-bottom: clamp(64px, 8vw, 110px);
-  }
-  
-  /* Header uses the existing global styles from ../style.css. */
-  
-  /* =========================================================
-     HERO
-     ========================================================= */
-  
-  .brand-profile-hero {
-    width: min(1240px, calc(100% - 48px));
-    margin: 28px auto 0;
-  }
-  
-  .brand-profile-hero__inner {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    min-height: 440px;
-    padding: clamp(38px, 5.5vw, 68px);
-    display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
-    align-items: center;
-    gap: clamp(36px, 6vw, 82px);
-    border: 1px solid rgba(11, 31, 58, 0.08);
-    border-radius: var(--brand-radius-lg);
-    background:
-      radial-gradient(circle at 100% 0%, var(--brand-secondary-soft) 0 13rem, transparent 13.1rem),
-      radial-gradient(circle at 0% 100%, var(--brand-accent-soft) 0 10rem, transparent 10.1rem),
-      linear-gradient(135deg, #ffffff 0%, #fbfcff 100%);
-    box-shadow: var(--brand-shadow);
-  }
-  
-  .brand-profile-hero__inner::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 210px;
-    height: 210px;
-    right: 24%;
-    top: -118px;
-    border: 36px solid var(--brand-accent-soft);
-    border-radius: 50%;
-    opacity: 0.85;
-  }
-  
-  .brand-profile-hero__copy {
-    min-width: 0;
-  }
-  
-  .brand-profile-back {
-    min-height: 44px;
-    margin-bottom: 28px;
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    color: var(--brand-muted);
-    font-family: "Inter", sans-serif;
-    font-size: 0.78rem;
-    font-weight: 800;
-    text-decoration: none;
-    transition: color 180ms ease, gap 180ms ease;
-  }
-  
-  .brand-profile-back::before {
-    content: "←";
-    color: var(--brand-accent-strong);
-    font-size: 1.05rem;
-  }
-  
-  .brand-profile-back:hover {
-    gap: 13px;
-    color: var(--brand-ink);
-  }
-  
-  .brand-profile-eyebrow {
-    width: fit-content;
-    margin: 0 0 16px;
-    padding: 7px 11px;
-    border: 1px solid var(--brand-line);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    color: var(--brand-accent-strong);
-    font-family: "Inter", sans-serif;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-  }
-  
-  .brand-profile-hero h1 {
-    max-width: 760px;
-    margin: 0;
-    color: var(--brand-ink);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(3.2rem, 6.4vw, 6.4rem);
-    font-weight: 800;
-    line-height: 0.94;
-    letter-spacing: -0.065em;
-    overflow-wrap: anywhere;
-  }
-  
-  .brand-profile-tagline {
-    max-width: 660px;
-    margin: 22px 0 0;
-    color: var(--brand-muted);
-    font-family: "Inter", sans-serif;
-    font-size: clamp(1rem, 1.55vw, 1.22rem);
-    font-weight: 550;
-    line-height: 1.7;
-  }
-  
-  .brand-profile-hero-actions {
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 11px;
-  }
-  
-  .brand-profile-hero-actions a,
-  .brand-page .brand-cta-row a {
-    min-height: 48px;
-    padding: 12px 18px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 14px;
-    font-family: "Inter", sans-serif;
-    font-size: 0.8rem;
-    font-weight: 800;
-    line-height: 1;
-    text-decoration: none;
-    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-  }
-  
-  .brand-profile-hero-actions .btn-primary,
-  .brand-page .brand-cta-row .btn-primary {
-    border: 1px solid var(--brand-secondary);
-    background: var(--brand-secondary);
-    color: #fff;
-    box-shadow: 0 10px 24px rgba(11, 31, 58, 0.12);
-  }
-  
-  .brand-profile-hero-actions .komp-cta-secondary,
-  .brand-page .brand-cta-row .komp-cta-secondary {
-    border: 1px solid var(--brand-line);
-    background: rgba(255, 255, 255, 0.8);
-    color: var(--brand-ink);
-  }
-  
-  .brand-profile-hero-actions a:hover,
-  .brand-page .brand-cta-row a:hover {
-    transform: translateY(-2px);
-  }
-  
-  .brand-profile-logo-panel {
-    position: relative;
-    min-height: 300px;
-    padding: 40px;
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(11, 31, 58, 0.08);
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.88);
-    box-shadow: var(--brand-shadow-soft);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  
-  .brand-profile-logo-panel::after {
-    content: "Bagian dari Ekosistem PUSKANAS";
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    padding-top: 14px;
-    border-top: 1px solid var(--brand-line);
-    color: var(--brand-muted);
-    font-family: "Inter", sans-serif;
-    font-size: 0.68rem;
-    font-weight: 750;
-    text-align: center;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  
-  .brand-profile-logo-panel img {
-    width: min(100%, 300px);
-    max-height: 135px;
-    object-fit: contain;
-  }
-  
-  /* =========================================================
-     STICKY IN-PAGE NAV
-     ========================================================= */
-  
-  .brand-profile-jump {
-    position: sticky;
-    top: 75px;
-    z-index: 900;
-    margin-top: 20px;
-    border-block: 1px solid rgba(11, 31, 58, 0.07);
-    background: rgba(245, 247, 251, 0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
-  
-  .brand-profile-jump__inner {
-    width: min(1180px, calc(100% - 48px));
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  
-  .brand-profile-jump__inner::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .brand-profile-jump a {
-    flex: 0 0 auto;
-    min-height: 52px;
-    padding: 0 14px;
-    display: inline-flex;
-    align-items: center;
-    border-bottom: 2px solid transparent;
-    color: var(--brand-muted);
-    font-family: "Inter", sans-serif;
-    font-size: 0.76rem;
-    font-weight: 800;
-    text-decoration: none;
-    transition: color 180ms ease, border-color 180ms ease;
-  }
-  
-  .brand-profile-jump a:hover,
-  .brand-profile-jump a:focus-visible {
-    color: var(--brand-ink);
-    border-bottom-color: var(--brand-accent);
-  }
-  
-  /* =========================================================
-     CONTENT BASE
-     ========================================================= */
-  
-  .brand-profile-content {
-    width: min(1180px, calc(100% - 48px));
-    margin-inline: auto;
-    padding-top: clamp(62px, 8vw, 96px);
-  }
-  
-  .brand-profile-content > section {
-    scroll-margin-top: 145px;
-  }
-  
-  .brand-profile-content > section + section {
-    margin-top: clamp(54px, 7vw, 88px);
-  }
-  
-  .brand-profile-section-heading {
-    max-width: 700px;
-    margin-bottom: 24px;
-  }
-  
-  .brand-profile-section-heading .brand-profile-kicker,
-  .brand-profile-kicker {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--brand-accent-strong);
-    font-family: "Inter", sans-serif;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-  }
-  
-  .brand-profile-content h2,
-  .brand-profile-content h3 {
-    margin: 0;
-    color: var(--brand-ink);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.035em;
-  }
-  
-  .brand-profile-content h2 {
-    font-size: clamp(1.8rem, 3.2vw, 3rem);
-    line-height: 1.08;
-  }
-  
-  .brand-profile-content h3 {
-    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
-    line-height: 1.25;
-  }
-  
-  .brand-profile-content p {
-    margin: 0;
-    color: var(--brand-muted);
-    font-family: "Inter", sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.78;
-  }
-  
-  /* =========================================================
-     ABOUT — compact bento
-     ========================================================= */
-  
-  .brand-profile-pair {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 18px;
-  }
-  
-  .brand-profile-copy-block {
-    position: relative;
-    min-width: 0;
-    min-height: 250px;
-    padding: clamp(28px, 4vw, 42px);
-    overflow: hidden;
-    border: 1px solid var(--brand-line);
-    border-radius: var(--brand-radius-md);
-    background: rgba(255, 255, 255, 0.88);
-    box-shadow: var(--brand-shadow-soft);
-  }
-  
-  .brand-profile-copy-block:first-child {
-    background:
-      radial-gradient(circle at 100% 0%, var(--brand-accent-soft) 0 9rem, transparent 9.1rem),
-      rgba(255, 255, 255, 0.9);
-  }
-  
-  .brand-profile-copy-block:last-child {
-    background:
-      radial-gradient(circle at 0% 100%, var(--brand-secondary-soft) 0 9rem, transparent 9.1rem),
-      rgba(255, 255, 255, 0.9);
-  }
-  
-  .brand-profile-copy-block h3 {
-    margin-bottom: 16px;
-  }
-  
-  .brand-profile-copy-block p {
-    max-width: 720px;
-  }
-  
-  /* =========================================================
-     PROGRAM — target / event / fields
-     ========================================================= */
-  
-  .brand-profile-program {
-    display: grid;
-    grid-template-columns: 0.72fr 1.28fr;
-    grid-template-areas:
-      "target events"
-      "fields events";
-    gap: 18px;
-  }
-  
-  .brand-profile-target,
-  .brand-profile-events,
-  .brand-profile-fields {
-    min-width: 0;
-    padding: clamp(26px, 3.5vw, 36px);
-    border: 1px solid var(--brand-line);
-    border-radius: var(--brand-radius-md);
-    box-shadow: var(--brand-shadow-soft);
-  }
-  
-  .brand-profile-target {
-    grid-area: target;
-    background: linear-gradient(145deg, var(--brand-accent-soft), #fff 82%);
-  }
-  
-  .brand-profile-events {
-    grid-area: events;
-    background: rgba(255, 255, 255, 0.9);
-  }
-  
-  .brand-profile-fields {
-    grid-area: fields;
-    background: linear-gradient(145deg, var(--brand-secondary-soft), #fff 86%);
-  }
-  
-  .brand-profile-target h3,
-  .brand-profile-events h3,
-  .brand-profile-fields h3 {
-    margin-bottom: 16px;
-  }
-  
-  .brand-profile-target .brand-target {
-    color: var(--brand-ink);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(1.3rem, 2.4vw, 2rem);
-    font-weight: 800;
-    line-height: 1.28;
-    letter-spacing: -0.035em;
-  }
-  
-  .brand-page .brand-event-list {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 10px;
-    list-style: none;
-  }
-  
-  .brand-page .brand-event-list li {
-    min-width: 0;
-    padding: 16px 18px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 16px;
-    border: 1px solid var(--brand-line);
-    border-radius: 15px;
-    background: #fff;
-    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-  }
-  
-  .brand-page .brand-event-list li:hover {
-    transform: translateY(-2px);
-    border-color: var(--brand-accent);
-    box-shadow: 0 9px 22px rgba(11, 31, 58, 0.06);
-  }
-  
-  .brand-page .brand-event-list strong {
-    min-width: 0;
-    color: var(--brand-ink);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 0.92rem;
-    font-weight: 800;
-    line-height: 1.4;
-  }
-  
-  .brand-page .brand-event-list span {
-    max-width: 190px;
-    color: var(--brand-muted);
-    font-family: "Inter", sans-serif;
-    font-size: 0.7rem;
-    font-weight: 650;
-    line-height: 1.45;
-    text-align: right;
-  }
-  
-  .brand-page .ekosistem-karakter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-  }
-  
-  .brand-page .ekosistem-chip {
-    min-height: 38px;
-    padding: 8px 12px;
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid rgba(11, 31, 58, 0.09);
-    border-radius: 999px;
-    background: #fff;
-    color: var(--brand-ink);
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 750;
-  }
-  
-  /* =========================================================
-     ACHIEVEMENT
-     ========================================================= */
-  
-  .brand-profile-achievement {
-    position: relative;
-    overflow: hidden;
-    padding: clamp(32px, 5vw, 52px);
-    border-radius: var(--brand-radius-lg);
-    background:
-      radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.09) 0 11rem, transparent 11.1rem),
-      linear-gradient(135deg, var(--brand-ink), #132d55);
-    box-shadow: var(--brand-shadow);
-  }
-  
-  .brand-profile-achievement .brand-profile-kicker {
-    color: var(--brand-accent);
-  }
-  
-  .brand-profile-achievement h2 {
-    margin-bottom: 32px;
-    color: #fff;
-  }
-  
-  .brand-page .brand-stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-  }
-  
-  .brand-page .brand-stat {
-    min-width: 0;
-    padding: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.06);
-  }
-  
-  .brand-page .brand-stat strong {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--brand-accent);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.055em;
-  }
-  
-  .brand-page .brand-stat span {
-    color: rgba(255, 255, 255, 0.72);
-    font-family: "Inter", sans-serif;
-    font-size: 0.76rem;
-    line-height: 1.5;
-  }
-  
-  /* =========================================================
-     TESTIMONIAL
-     ========================================================= */
-  
-  .brand-profile-testimonial {
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: minmax(210px, 0.35fr) minmax(0, 1fr);
-    gap: clamp(28px, 5vw, 66px);
-    padding: clamp(32px, 5vw, 56px);
-    align-items: start;
-    border: 1px solid var(--brand-line);
-    border-radius: var(--brand-radius-lg);
-    background:
-      radial-gradient(circle at 100% 0%, var(--brand-accent-soft) 0 12rem, transparent 12.1rem),
-      #fff;
-    box-shadow: var(--brand-shadow-soft);
-  }
-  
-  .brand-profile-testimonial__head h2 {
-    font-size: clamp(1.7rem, 3vw, 2.6rem);
-  }
-  
-  .brand-page .brand-testimoni {
-    position: relative;
-    min-width: 0;
-    padding-top: 3px;
-  }
-  
-  .brand-page .brand-testimoni::before {
-    content: "“";
-    position: absolute;
-    top: -32px;
-    left: -3px;
-    color: var(--brand-accent-soft);
-    font-family: Georgia, serif;
-    font-size: 8rem;
-    line-height: 1;
-    pointer-events: none;
-  }
-  
-  .brand-page .brand-testimoni p {
-    position: relative;
-    z-index: 1;
-    margin: 0 0 26px;
-    color: var(--brand-ink);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(1.2rem, 2.4vw, 2rem);
-    font-weight: 700;
-    line-height: 1.45;
-    letter-spacing: -0.025em;
-  }
-  
-  .brand-page .brand-testimoni-nama {
-    color: var(--brand-ink);
-    font-family: "Inter", sans-serif;
-    font-size: 0.86rem;
-    font-weight: 800;
-  }
-  
-  .brand-page .brand-testimoni-peran {
-    margin-top: 4px;
-    color: var(--brand-muted);
-    font-family: "Inter", sans-serif;
-    font-size: 0.74rem;
-  }
-  
-  /* =========================================================
-     SOCIAL + FINAL CTA
-     ========================================================= */
-  
-  .brand-profile-end {
-    display: grid;
-    grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.35fr);
-    gap: 18px;
-  }
-  
-  .brand-profile-social,
-  .brand-profile-actions {
-    min-width: 0;
-    padding: clamp(26px, 4vw, 38px);
-    border-radius: var(--brand-radius-md);
-  }
-  
-  .brand-profile-social {
-    border: 1px solid var(--brand-line);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: var(--brand-shadow-soft);
-  }
-  
-  .brand-profile-social h3 {
-    margin-bottom: 18px;
-  }
-  
-  .brand-page .brand-sosial {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .brand-page .brand-sosial a {
-    width: 46px;
-    height: 46px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--brand-line);
-    border-radius: 14px;
-    background: #fff;
-    color: var(--brand-ink);
-    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
-  }
-  
-  .brand-page .brand-sosial a[href="#"] {
-    display: none;
-  }
-  
-  .brand-page .brand-sosial a:hover {
-    transform: translateY(-2px);
-    border-color: var(--brand-accent);
-    background: var(--brand-accent-soft);
-  }
-  
-  .brand-page .brand-sosial svg {
-    width: 19px;
-    height: 19px;
-  }
-  
-  .brand-profile-actions {
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 24px;
-    background:
-      radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.08) 0 8rem, transparent 8.1rem),
-      var(--brand-ink);
-    color: #fff;
-  }
-  
-  .brand-profile-actions h3 {
-    margin-bottom: 8px;
-    color: #fff;
-  }
-  
-  .brand-profile-actions p {
-    max-width: 560px;
-    color: rgba(255, 255, 255, 0.68);
-    font-size: 0.86rem;
-  }
-  
-  .brand-page .brand-cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .brand-profile-actions .brand-cta-row .btn-primary {
-    border-color: var(--brand-accent);
-    background: var(--brand-accent);
-    color: var(--brand-ink);
-  }
-  
-  .brand-profile-actions .brand-cta-row .komp-cta-secondary {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.06);
-    color: #fff;
-  }
-  
-  .brand-profile-end:not(:has(.brand-profile-social .brand-sosial a:not([href="#"]))) {
-    grid-template-columns: 1fr;
-  }
-  
-  .brand-profile-end:not(:has(.brand-profile-social .brand-sosial a:not([href="#"]))) .brand-profile-social {
-    display: none;
-  }
-  
-  /* Footer uses the existing global styles from ../style.css. */
-  
-  /* =========================================================
-     ACCESSIBILITY
-     ========================================================= */
-  
-  .brand-page a:focus-visible {
-    outline: 3px solid var(--brand-accent);
-    outline-offset: 4px;
-  }
-  
-  /* =========================================================
-     TABLET
-     ========================================================= */
-  
-  @media (max-width: 980px) {
-    .brand-profile-hero__inner {
-      min-height: auto;
-      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.65fr);
-      gap: 30px;
-    }
-  
-    .brand-profile-logo-panel {
-      min-height: 250px;
-      padding: 30px;
-    }
-  
-    .brand-profile-program {
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        "target fields"
-        "events events";
-    }
-  
-    .brand-profile-end {
-      grid-template-columns: 1fr;
-    }
-  
-    .brand-profile-actions {
-      grid-template-columns: minmax(0, 1fr) auto;
-    }
-  }
-  
-  /* =========================================================
-     MOBILE / SMALL TABLET
-     ========================================================= */
-  
-  @media (max-width: 760px) {
-    .brand-profile-hero,
-    .brand-profile-jump__inner,
-    .brand-profile-content {
-      width: min(100% - 28px, 1180px);
-    }
-  
-    .brand-profile-hero {
-      margin-top: 14px;
-    }
-  
-    .brand-profile-hero__inner {
-      padding: 30px 22px 22px;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      border-radius: 24px;
-    }
-  
-    .brand-profile-hero__inner::before {
-      width: 150px;
-      height: 150px;
-      right: -36px;
-      top: -90px;
-      border-width: 26px;
-    }
-  
-    .brand-profile-back {
-      margin-bottom: 19px;
-    }
-  
-    .brand-profile-hero h1 {
-      font-size: clamp(2.65rem, 14vw, 4.8rem);
-    }
-  
-    .brand-profile-tagline {
-      margin-top: 16px;
-      font-size: 0.95rem;
-    }
-  
-    .brand-profile-hero-actions {
-      margin-top: 24px;
-    }
-  
-    .brand-profile-hero-actions a {
-      flex: 1 1 160px;
-    }
-  
-    .brand-profile-logo-panel {
-      min-height: 190px;
-      padding: 28px 24px 58px;
-      border-radius: 20px;
-    }
-  
-    .brand-profile-logo-panel img {
-      width: min(100%, 235px);
-      max-height: 100px;
-    }
-  
-    .brand-profile-jump {
-      top: 83px;
-      margin-top: 14px;
-    }
-  
-    .brand-profile-jump a {
-      min-height: 48px;
-      padding-inline: 11px;
-      font-size: 0.7rem;
-    }
-  
-    .brand-profile-content {
-      padding-top: 52px;
-    }
-  
-    .brand-profile-content > section {
-      scroll-margin-top: 120px;
-    }
-  
-    .brand-profile-pair,
-    .brand-profile-program,
-    .brand-profile-testimonial,
-    .brand-profile-actions {
-      grid-template-columns: 1fr;
-    }
-  
-    .brand-profile-program {
-      grid-template-areas:
-        "target"
-        "events"
-        "fields";
-    }
-  
-    .brand-profile-copy-block {
-      min-height: 0;
-      padding: 26px 22px;
-      border-radius: 20px;
-    }
-  
-    .brand-profile-target,
-    .brand-profile-events,
-    .brand-profile-fields,
-    .brand-profile-social,
-    .brand-profile-actions {
-      padding: 25px 21px;
-      border-radius: 20px;
-    }
-  
-    .brand-page .brand-event-list li {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 15px 16px;
-    }
-  
-    .brand-page .brand-event-list span {
-      max-width: none;
-      text-align: left;
-    }
-  
-    .brand-profile-achievement {
-      padding: 29px 21px;
-      border-radius: 22px;
-    }
-  
-    .brand-page .brand-stats {
-      grid-template-columns: 1fr;
-    }
-  
-    .brand-page .brand-stat {
-      padding: 18px;
-    }
-  
-    .brand-profile-testimonial {
-      gap: 22px;
-      padding: 28px 22px;
-      border-radius: 22px;
-    }
-  
-    .brand-page .brand-testimoni::before {
-      top: -24px;
-      font-size: 6.2rem;
-    }
-  
-    .brand-profile-actions {
-      align-items: start;
-      gap: 20px;
-    }
-  
-    .brand-page .brand-cta-row {
-      justify-content: stretch;
-    }
-  
-    .brand-page .brand-cta-row a {
-      flex: 1 1 160px;
-    }
-  }
-  
-  @media (max-width: 430px) {
-    .brand-profile-hero,
-    .brand-profile-jump__inner,
-    .brand-profile-content {
-      width: calc(100% - 20px);
-    }
-  
-    .brand-profile-hero__inner {
-      padding-inline: 18px;
-    }
-  
-    .brand-profile-hero-actions,
-    .brand-page .brand-cta-row {
-      flex-direction: column;
-    }
-  
-    .brand-profile-hero-actions a,
-    .brand-page .brand-cta-row a {
-      width: 100%;
-      flex-basis: auto;
-    }
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .brand-page *,
-    .brand-page *::before,
-    .brand-page *::after {
-      scroll-behavior: auto !important;
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-    }
-  }
-  
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
