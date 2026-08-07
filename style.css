@@ -3098,7 +3098,7 @@ footer::after {
     max-height: none;
     overflow: visible;
     padding: 6px 11px;
-    border: 1px solid currentColor;
+    border: 0;
     border-radius: 9px;
     background: #ffffff;
     font-size: 0.64rem;
@@ -3106,7 +3106,7 @@ footer::after {
     letter-spacing: 0.1px;
     line-height: 1.2;
     white-space: nowrap;
-    box-shadow: 0 8px 20px -12px rgba(20, 22, 31, 0.28);
+    box-shadow: 0 6px 16px -12px rgba(20, 22, 31, 0.22);
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, 5px) scale(0.94);
@@ -3157,9 +3157,23 @@ footer::after {
     transform: translate(-50%, 0) scale(1);
   }
 
-  /* Di mobile jangan scale seluruh .dock-face karena label ikut membesar dan bisa keluar layar. */
+  /* Jangan scale seluruh face karena label ikut bergeser. Besarkan hanya ikon aktif. */
   .dock-item.active .dock-face {
     transform: none;
+  }
+
+  .dock-face svg,
+  .dock-face i {
+    transform-origin: center;
+    transition:
+      transform 180ms ease,
+      stroke 180ms ease,
+      color 180ms ease;
+  }
+
+  .dock-item.active .dock-face svg,
+  .dock-item.active .dock-face i {
+    transform: scale(1.12);
   }
 
   /* Item paling kiri/kanan: label dikunci ke dalam viewport agar tidak terpotong. */
