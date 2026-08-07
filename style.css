@@ -3087,30 +3087,42 @@ footer::after {
     transform: translate(-50%, -50%) scale(1.08);
   }
 
-  /* Popup label aktif mobile: putih polos dan minimal. */
+  /* Label aktif mobile: putih minimal dan ukurannya mengikuti teks. */
   .dock-label {
     position: absolute;
     left: 50%;
     bottom: calc(100% + 14px);
     z-index: 3;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     width: max-content;
+    height: auto;
     min-width: 0;
+    min-height: 0;
     max-width: calc(100vw - 20px);
     max-height: none;
+
     margin: 0;
     padding: 4px 8px;
-    overflow: visible;
+
     border: 0;
     border-radius: 6px;
     background: #ffffff;
+
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0;
-    line-height: 1.15;
+    line-height: 1.2;
     white-space: nowrap;
+
     box-shadow: 0 3px 10px rgba(20, 22, 31, 0.06);
     opacity: 0;
+    overflow: visible;
     pointer-events: none;
+
     transform: translate(-50%, 3px);
     transform-origin: center bottom;
     transition:
@@ -3144,7 +3156,7 @@ footer::after {
     color: #ec4899;
   }
 
-  /* Tanpa segitiga / v di bawah popup. */
+  /* Tanpa ekor/segitiga agar popup tetap minimal. */
   .dock-label::after {
     content: none;
     display: none;
@@ -3152,6 +3164,9 @@ footer::after {
 
   .dock-item.active .dock-label {
     opacity: 1;
+    max-height: none;
+    height: auto;
+    overflow: visible;
     transform: translate(-50%, 0);
   }
 
@@ -3168,6 +3183,8 @@ footer::after {
   }
 
   .dock-item:first-child.active .dock-label {
+    max-height: none;
+    height: auto;
     transform: translate(0, 0);
   }
 
@@ -3179,12 +3196,15 @@ footer::after {
   }
 
   .dock-item:last-child.active .dock-label {
+    max-height: none;
+    height: auto;
     transform: translate(0, 0);
   }
 
   /* Saat sedang smooth-scroll akibat klik dock, jangan tampilkan label section yang dilewati. */
   .dock.is-navigating .dock-label {
     opacity: 0 !important;
+    transform: translate(-50%, 3px) !important;
     transition: none;
   }
 }
