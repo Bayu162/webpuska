@@ -2969,6 +2969,13 @@ footer::after {
   flex-shrink: 0;
   transition: stroke 0.2s ease;
 }
+.dock-face i {
+  font-size: 20px;
+  line-height: 1;
+  color: #525252;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
 .dock-item:nth-child(1):hover .dock-face svg,
 .dock-item:nth-child(1).active .dock-face svg {
   stroke: #3b82f6;
@@ -2997,9 +3004,9 @@ footer::after {
 .dock-item:nth-child(7).active .dock-face svg {
   stroke: #6366f1;
 }
-.dock-item:nth-child(8):hover .dock-face svg,
-.dock-item:nth-child(8).active .dock-face svg {
-  stroke: #ec4899;
+.dock-item:nth-child(8):hover .dock-face i,
+.dock-item:nth-child(8).active .dock-face i {
+  color: #ec4899;
 }
 .dock-label {
   font-size: 0.7rem;
@@ -3022,54 +3029,43 @@ footer::after {
 }
 
 @media (max-width: 640px) {
+  .dock-item {
+    flex: 1 1 0;
+    min-width: 0;
+  }
   .dock {
     gap: 0;
-    padding: 10px 2px 6px;
+    padding: 10px 2px 8px;
   }
   .dock-face {
-    padding: 3px 4px;
+    padding: 6px 2px;
+    width: 100%;
   }
-  .dock-face svg {
-    width: 16px;
-    height: 16px;
-  }
-  .dock-glow {
-    width: 42px;
-    height: 42px;
-    filter: blur(0.5px);
+  /* Di mobile label disembunyikan default (ruang sempit buat 8 item), full icon aja biar nggak overflow/kepotong */
+  .dock-label {
+    display: none;
   }
   .dock-item:hover .dock-face {
-    transform: scale(1.1);
+    transform: scale(1.15);
   }
   .dock-item.active .dock-face {
-    transform: scale(1.2);
+    transform: scale(1.25);
   }
   .dock-item.active .dock-glow {
     transform: translate(-50%, -50%) scale(1.05);
   }
-  .dock-label {
-    font-size: 0.55rem;
-    margin-top: 2px;
-  }
 }
 
 @media (max-width: 380px) {
-  .dock {
-    padding: 8px 2px 5px;
-  }
-  .dock-face {
-    padding: 2px 3px;
-  }
-  .dock-face svg {
-    width: 14px;
-    height: 14px;
+  .dock-face svg,
+  .dock-face i {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
   }
   .dock-glow {
     width: 36px;
     height: 36px;
-  }
-  .dock-label {
-    font-size: 0.5rem;
   }
 }
 
