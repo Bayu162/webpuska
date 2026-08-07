@@ -3150,6 +3150,7 @@ footer::after {
     transform: translateX(-50%);
     border: 5px solid transparent;
     border-top-color: #ffffff;
+    bottom: calc(100% + 10px);
   }
 
   .dock-item.active .dock-label {
