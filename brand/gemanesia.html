@@ -10,22 +10,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../assets/css/brand-pages.css">
-<link rel="stylesheet" href="../assets/css/components.css?v=1">
 </head>
 <body class="brand-page" data-brand="gemanesia">
-  <!-- Navbar dimuat dari components/navbar.html -->
-  <div id="site-navbar"></div>
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="Kembali ke beranda PUSKANAS">
+        <img src="../logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional">
+      </a>
+      <a href="https://app.puskanas.id/" class="btn-app" target="_blank" rel="noopener">Masuk ke Aplikasi</a>
+    </div>
+  </header>
 
   <main class="brand-page-main">
     <section class="brand-profile-hero" aria-labelledby="nama">
       <div class="brand-profile-hero__inner">
         <div class="brand-profile-hero__copy">
           <a href="../index.html#ekosistem-brand" class="brand-profile-back">Kembali ke Ekosistem Brand</a>
-          <h1 id="nama"></h1>
+          <p class="brand-profile-eyebrow">Brand Profile</p>
+          <h1 id="nama">GEMANESIA</h1>
           <p id="tagline" class="brand-profile-tagline"></p>
+          <div class="brand-profile-hero-actions">
+            <a href="../index.html#filter-kompetisi" class="btn-primary">Lihat Kompetisi</a>
+            <a href="#tentang-brand" class="komp-cta-secondary">Kenali Brand</a>
+          </div>
         </div>
-        <div class="brand-profile-logo-panel">
-          <img id="logo" src="" alt="">
+
+        <div class="brand-profile-logo-panel" aria-label="Identitas visual brand">
+          <img id="logo" src="../assets/images/gemanesia.webp" alt="Logo GEMANESIA">
         </div>
       </div>
     </section>
@@ -35,66 +46,69 @@
         <a href="#tentang-brand">Tentang</a>
         <a href="#program-brand">Program</a>
         <a href="#capaian-brand">Capaian</a>
-        <a href="#dokumentasi-brand">Dokumentasi</a>
         <a href="#testimoni-brand">Testimoni</a>
-        <a href="#media-brand">Media Sosial</a>
       </div>
     </nav>
 
     <div class="brand-profile-content">
-      <section class="brand-profile-pair" id="tentang-brand">
-        <article class="brand-profile-copy-block">
-          <span class="brand-profile-index" aria-hidden="true">01</span>
-          <h2>Tentang Brand</h2>
-          <p id="tentang"></p>
-        </article>
-        <article class="brand-profile-copy-block">
-          <span class="brand-profile-index" aria-hidden="true">02</span>
-          <h2>Positioning</h2>
-          <p id="positioning"></p>
-        </article>
-      </section>
-
-      <section class="brand-profile-program" id="program-brand">
-        <article class="brand-profile-target">
-          <span class="brand-profile-index" aria-hidden="true">03</span>
-          <h2>Target Peserta</h2>
-          <p class="brand-target" id="targetPeserta"></p>
-        </article>
-
-        <article class="brand-profile-events">
-          <span class="brand-profile-index" aria-hidden="true">04</span>
-          <h2>Event Utama</h2>
-          <ul class="brand-event-list" id="eventUtama"></ul>
-        </article>
-
-        <article class="brand-profile-fields">
-          <span class="brand-profile-index" aria-hidden="true">05</span>
-          <h2>Bidang Kompetisi</h2>
-          <div class="ekosistem-karakter" id="bidangKompetisi"></div>
-        </article>
-      </section>
-
-      <section class="brand-profile-achievement" id="capaian-brand">
-        <div class="brand-profile-achievement__head">
-          <span class="brand-profile-index" aria-hidden="true">06</span>
-          <h2>Capaian</h2>
+      <section id="tentang-brand" aria-labelledby="tentang-heading">
+        <div class="brand-profile-section-heading">
+          <span class="brand-profile-kicker">Mengenal Brand</span>
+          <h2 id="tentang-heading">Identitas, fokus, dan peran brand</h2>
         </div>
+
+        <div class="brand-profile-pair">
+          <article class="brand-profile-copy-block">
+            <span class="brand-profile-kicker">Tentang</span>
+            <h3>Tentang Brand</h3>
+            <p id="tentang"></p>
+          </article>
+
+          <article class="brand-profile-copy-block">
+            <span class="brand-profile-kicker">Positioning</span>
+            <h3>Peran di Ekosistem</h3>
+            <p id="positioning"></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="program-brand" aria-labelledby="program-heading">
+        <div class="brand-profile-section-heading">
+          <span class="brand-profile-kicker">Program & Peserta</span>
+          <h2 id="program-heading">Apa yang menjadi fokus brand ini?</h2>
+        </div>
+
+        <div class="brand-profile-program">
+          <article class="brand-profile-target">
+            <span class="brand-profile-kicker">Target Peserta</span>
+            <h3>Untuk siapa?</h3>
+            <p class="brand-target" id="targetPeserta"></p>
+          </article>
+
+          <article class="brand-profile-events">
+            <span class="brand-profile-kicker">Program Utama</span>
+            <h3>Event yang diselenggarakan</h3>
+            <ul class="brand-event-list" id="eventUtama"></ul>
+          </article>
+
+          <article class="brand-profile-fields">
+            <span class="brand-profile-kicker">Bidang Kompetisi</span>
+            <h3>Ruang kompetisi</h3>
+            <div class="ekosistem-karakter" id="bidangKompetisi"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="brand-profile-achievement" id="capaian-brand" aria-labelledby="capaian-heading">
+        <span class="brand-profile-kicker">Dalam Angka</span>
+        <h2 id="capaian-heading">Capaian brand</h2>
         <div class="brand-stats" id="capaian"></div>
       </section>
 
-      <section class="brand-profile-documentation" id="dokumentasi-brand">
-        <div class="brand-profile-documentation__head">
-          <span class="brand-profile-index" aria-hidden="true">07</span>
-          <h2>Dokumentasi</h2>
-        </div>
-        <div class="brand-dokumentasi-placeholder">Taruh galeri foto/video dokumentasi brand ini di sini.</div>
-      </section>
-
-      <section class="brand-profile-testimonial" id="testimoni-brand">
+      <section class="brand-profile-testimonial" id="testimoni-brand" aria-labelledby="testimoni-heading">
         <div class="brand-profile-testimonial__head">
-          <span class="brand-profile-index" aria-hidden="true">08</span>
-          <h2>Testimoni</h2>
+          <span class="brand-profile-kicker">Cerita Peserta</span>
+          <h2 id="testimoni-heading">Pengalaman dari ekosistem</h2>
         </div>
         <div class="brand-testimoni">
           <p id="testimoniIsi"></p>
@@ -105,30 +119,45 @@
 
       <section class="brand-profile-end" id="media-brand">
         <article class="brand-profile-social">
-          <span class="brand-profile-index" aria-hidden="true">09</span>
-          <h2>Media Sosial</h2>
+          <span class="brand-profile-kicker">Terhubung</span>
+          <h3>Media Sosial</h3>
           <div class="brand-sosial">
-            <a id="sosialInstagram" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-            <a id="sosialTiktok" href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 3V14.5C14 16.4 12.4 18 10.5 18C8.6 18 7 16.4 7 14.5C7 12.6 8.6 11 10.5 11"/><path d="M14 3C14 5.2 15.8 7 18 7"/></svg></a>
-            <a id="sosialYoutube" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9L15 12L10 15V9Z" fill="currentColor" stroke="none"/></svg></a>
+            <a id="sosialInstagram" href="#" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a id="sosialTiktok" href="#" aria-label="TikTok" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M14 3V14.5C14 16.4 12.4 18 10.5 18C8.6 18 7 16.4 7 14.5C7 12.6 8.6 11 10.5 11"/><path d="M14 3C14 5.2 15.8 7 18 7"/></svg>
+            </a>
+            <a id="sosialYoutube" href="#" aria-label="YouTube" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9L15 12L10 15V9Z" fill="currentColor" stroke="none"/></svg>
+            </a>
           </div>
         </article>
 
         <article class="brand-profile-actions">
+          <div>
+            <span class="brand-profile-kicker">Mulai dari sini</span>
+            <h3>Temukan kompetisi yang sesuai denganmu</h3>
+            <p>Lihat pilihan event di ekosistem PUSKANAS atau masuk ke aplikasi untuk mengikuti kompetisi.</p>
+          </div>
           <div class="brand-cta-row">
             <a href="../index.html#filter-kompetisi" class="btn-primary">Lihat Event</a>
-            <a href="https://app.puskanas.id/" class="komp-cta-secondary" target="_blank" rel="noopener">Masuk ke Aplikasi</a>
+            <a href="https://app.puskanas.id/" class="komp-cta-secondary" target="_blank" rel="noopener">Buka Aplikasi</a>
           </div>
         </article>
       </section>
     </div>
   </main>
 
-  <!-- Footer dimuat dari components/footer.html -->
-  <div id="site-footer"></div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 PUSKANAS. Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
 
 <script src="../data-brand.js"></script>
 <script src="../brand.js"></script>
-<script src="../assets/js/components.js?v=1" defer></script>
 </body>
 </html>
