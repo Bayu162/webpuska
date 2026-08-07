@@ -272,7 +272,7 @@
   
   .brand-profile-jump {
     position: sticky;
-    top: 78px;
+    top: 75px;
     z-index: 900;
     margin-top: 20px;
     border-block: 1px solid rgba(11, 31, 58, 0.07);
