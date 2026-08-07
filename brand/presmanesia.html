@@ -9,23 +9,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../assets/css/components.css?v=1">
 <link rel="stylesheet" href="../assets/css/brand-pages.css">
 </head>
 <body class="brand-page" data-brand="presmanesia">
-  <header>
-    <div class="header-inner">
-      <a href="../index.html" class="logo" aria-label="Kembali ke beranda PUSKANAS">
-        <img src="../logo.png" alt="PUSKANAS — Pusat Kejuaraan Sains Nasional">
-      </a>
-      <a href="https://app.puskanas.id/" class="btn-app" target="_blank" rel="noopener">Masuk ke Aplikasi</a>
-    </div>
-  </header>
+  <!-- Navbar dimuat dari components/navbar.html -->
+  <div id="site-navbar"></div>
 
-  <main class="brand-page-main">
+<main class="brand-page-main">
     <section class="brand-profile-hero" aria-labelledby="nama">
       <div class="brand-profile-hero__inner">
         <div class="brand-profile-hero__copy">
-          <a href="../index.html#ekosistem-brand" class="brand-profile-back">Kembali ke Ekosistem Brand</a>
+          <a href="../index.html" class="brand-profile-back">Kembali ke Beranda</a>
           <p class="brand-profile-eyebrow">Brand Profile</p>
           <h1 id="nama">PRESMANESIA</h1>
           <p id="tagline" class="brand-profile-tagline"></p>
@@ -148,15 +143,10 @@
       </section>
     </div>
   </main>
+  <!-- Footer dimuat dari components/footer.html -->
+  <div id="site-footer"></div>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-bottom">
-        <p class="footer-copyright">© 2026 PUSKANAS. Seluruh hak cipta dilindungi.</p>
-      </div>
-    </div>
-  </footer>
-
+<script src="../assets/js/components.js?v=1" defer></script>
 <script src="../data-brand.js"></script>
 <script src="../brand.js"></script>
 </body>
