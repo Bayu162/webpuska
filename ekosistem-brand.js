@@ -7,29 +7,14 @@
   const urutan = ['puskanas', 'presmanesia', 'fosnas', 'gemanesia', 'porosnas'];
   const warnaBrand = {
     puskanas: {
-      accent: '#e97f19',
-      
-      ring: 'rgba(233, 127, 25, 0.09)'
     },
     presmanesia: {
-      accent: '#0b7087',
-      
-      ring: 'rgba(11, 112, 135, 0.09)'
     },
     fosnas: {
-      accent: '#0864a5',
-      
-      ring: 'rgba(8, 100, 165, 0.09)'
     },
     gemanesia: {
-      accent: '#10a3b5',
-      
-      ring: 'rgba(16, 163, 181, 0.09)'
     },
     porosnas: {
-      accent: '#f28a00',
-      soft: 'rgba(242, 138, 0, 0.10)',
-      ring: 'rgba(242, 138, 0, 0.10)'
     }
   };
 
@@ -37,7 +22,7 @@
     const brand = BRAND[id];
     const warna = warnaBrand[id];
     const eventUtama = brand.contohEvent?.[0];
-    const nomor = String(index + 1).padStart(2, '0');
+    const nomor = String(index + 1).padStart(2);
     const metaItems = Array.isArray(brand.meta) && brand.meta.length
       ? brand.meta
       : [brand.targetPeserta, eventUtama].filter(Boolean);
