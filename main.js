@@ -98,37 +98,109 @@ setInterval(() => goTo((current + 1) % slides.length), 5000);
 
 /* ---------- Dock: hover/klik/scroll ---------- */
 const dock = document.getElementById("dock");
-const dockItems = dock.querySelectorAll(".dock-item");
+const dockItems = dock ? [...dock.querySelectorAll(".dock-item")] : [];
+let dockIsNavigating = false;
+let dockNavigationTimer = null;
+let dockNavigationTarget = null;
+let dockNavigationItem = null;
 
 function setActiveDockItem(activeItem) {
   dockItems.forEach((item) => item.classList.toggle("active", item === activeItem));
 }
 
+function finishDockNavigation() {
+  if (!dockIsNavigating) return;
+
+  dockIsNavigating = false;
+  dock?.classList.remove("is-navigating");
+
+  if (dockNavigationItem) {
+    setActiveDockItem(dockNavigationItem);
+  }
+
+  dockNavigationTarget = null;
+  dockNavigationItem = null;
+
+  if (dockNavigationTimer) {
+    window.clearTimeout(dockNavigationTimer);
+    dockNavigationTimer = null;
+  }
+}
+
+function scheduleDockNavigationFinish() {
+  if (!dockIsNavigating) return;
+
+  if (dockNavigationTimer) {
+    window.clearTimeout(dockNavigationTimer);
+  }
+
+  // Fallback untuk browser yang belum mendukung event scrollend.
+  dockNavigationTimer = window.setTimeout(finishDockNavigation, 140);
+}
+
 dockItems.forEach((item) => {
   const targetSelector = item.dataset.target;
-  if (!targetSelector) return; // belum ada tujuan, biarkan non-aktif dulu
+  if (!targetSelector) return;
+
   item.addEventListener("click", () => {
-    setActiveDockItem(item); // langsung aktif, nggak nunggu scroll selesai
-    document.querySelector(targetSelector)?.scrollIntoView({ behavior: "smooth" });
+    const target = document.querySelector(targetSelector);
+    if (!target) return;
+
+    dockIsNavigating = true;
+    dockNavigationTarget = target;
+    dockNavigationItem = item;
+    dock?.classList.add("is-navigating");
+
+    // Ikon tujuan boleh langsung aktif, tetapi teks disembunyikan oleh .is-navigating.
+    setActiveDockItem(item);
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    scheduleDockNavigationFinish();
   });
 });
 
-// Scrollspy: section mana yang lagi kelihatan di layar -> dock item-nya jadi aktif (full icon)
-const dockSections = [...dockItems]
+if (dockItems.length) {
+  window.addEventListener("scroll", scheduleDockNavigationFinish, { passive: true });
+
+  if ("onscrollend" in window) {
+    window.addEventListener("scrollend", () => {
+      if (!dockIsNavigating) return;
+
+      // Pastikan scrollend yang dipakai memang sudah mendekati tujuan dock.
+      if (dockNavigationTarget) {
+        const rect = dockNavigationTarget.getBoundingClientRect();
+        const nearTarget = Math.abs(rect.top) <= Math.max(120, window.innerHeight * 0.22);
+        if (!nearTarget) {
+          scheduleDockNavigationFinish();
+          return;
+        }
+      }
+
+      finishDockNavigation();
+    });
+  }
+}
+
+// Scrollspy: section mana yang lagi kelihatan di layar -> dock item-nya jadi aktif.
+const dockSections = dockItems
   .map((item) => ({ item, el: document.querySelector(item.dataset.target || "") }))
   .filter((entry) => entry.el);
 
 if (dockSections.length) {
   const dockObserver = new IntersectionObserver(
     (entries) => {
+      // Ketika klik dock sedang melakukan smooth-scroll, abaikan section perantara.
+      if (dockIsNavigating) return;
+
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const match = dockSections.find((s) => s.el === entry.target);
         if (match) setActiveDockItem(match.item);
       });
     },
-    { rootMargin: "-45% 0px -45% 0px" }, // "aktif" saat section lewat tengah layar
+    { rootMargin: "-45% 0px -45% 0px" }, // aktif saat section lewat tengah layar
   );
+
   dockSections.forEach((s) => dockObserver.observe(s.el));
 }
 

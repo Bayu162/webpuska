@@ -3059,26 +3059,35 @@ footer::after {
     flex: 1 1 0;
     min-width: 0;
   }
+
+  /* Mobile: dock dibuat putih solid supaya bersih dan konsisten. */
   .dock {
     gap: 0;
-    padding: 10px 2px 8px;
+    padding: 10px 2px calc(8px + env(safe-area-inset-bottom));
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-top: 1px solid #e6e8ec;
+    box-shadow: 0 -8px 22px -16px rgba(20, 22, 31, 0.28);
   }
+
   .dock-face {
     padding: 6px 2px;
     width: 100%;
   }
-  /* Bug fix: glow 58px lebih lebar dari slot item (~46px) jadi kelihatan bocor/nyala ke icon sebelahnya.
-     Diperkecil biar muat di dalam satu slot aja. */
+
+  /* Glow mobile dibuat kecil agar tidak bocor ke slot ikon di sebelahnya. */
   .dock-glow {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
+    filter: none;
   }
+
   .dock-item.active .dock-glow {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: translate(-50%, -50%) scale(1.08);
   }
-  /* Default icon-only di mobile. Nama halaman muncul sebagai popup mengambang di atas icon
-     pas item-nya glow (aktif). Sengaja nggak pakai :hover di sini — di touchscreen :hover
-     bisa "nyangkut" abis disentuh (nggak ada mouse-leave), jadi bisa 2 item keliatan aktif bareng. */
+
+  /* Nama section tetap muncul sebagai label aktif, tetapi popup-nya putih. */
   .dock-label {
     position: absolute;
     left: 50%;
@@ -3086,25 +3095,32 @@ footer::after {
     margin: 0 0 10px;
     max-height: none;
     overflow: visible;
-    background: linear-gradient(155deg, #262626, #0f0f0f);
-    color: #fff;
-    padding: 5px 11px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 11px;
+    border: 1px solid currentColor;
+    border-radius: 9px;
+    background: #ffffff;
     font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-    box-shadow:
-      0 10px 22px -8px rgba(0, 0, 0, 0.45),
-      0 2px 6px rgba(0, 0, 0, 0.25);
+    font-weight: 800;
+    letter-spacing: 0.1px;
+    box-shadow: 0 8px 20px -12px rgba(20, 22, 31, 0.28);
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, 6px) scale(0.85);
+    transform: translate(-50%, 5px) scale(0.94);
     transition:
-      opacity 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
-      transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      opacity 0.18s ease,
+      transform 0.18s ease;
   }
-  /* Anak panah kecil nunjuk ke icon-nya biar jelas ini punya siapa */
+
+  /* Warna font label mengikuti warna ikon masing-masing. */
+  .dock-item:nth-child(1) .dock-label { color: #3b82f6; }
+  .dock-item:nth-child(2) .dock-label { color: #f97316; }
+  .dock-item:nth-child(3) .dock-label { color: #9333ea; }
+  .dock-item:nth-child(4) .dock-label { color: #22c55e; }
+  .dock-item:nth-child(5) .dock-label { color: #14b8a6; }
+  .dock-item:nth-child(6) .dock-label { color: #ef4444; }
+  .dock-item:nth-child(7) .dock-label { color: #6366f1; }
+  .dock-item:nth-child(8) .dock-label { color: #ec4899; }
+
   .dock-label::after {
     content: "";
     position: absolute;
@@ -3112,14 +3128,23 @@ footer::after {
     left: 50%;
     transform: translateX(-50%);
     border: 5px solid transparent;
-    border-top-color: #0f0f0f;
+    border-top-color: #ffffff;
   }
+
   .dock-item.active .dock-label {
     opacity: 1;
     transform: translate(-50%, 0) scale(1);
   }
+
   .dock-item.active .dock-face {
-    transform: scale(1.25);
+    transform: scale(1.18);
+  }
+
+  /* Saat sedang smooth-scroll akibat klik dock, jangan tampilkan label section yang dilewati. */
+  .dock.is-navigating .dock-label {
+    opacity: 0 !important;
+    transform: translate(-50%, 5px) scale(0.94) !important;
+    transition: none;
   }
 }
 
