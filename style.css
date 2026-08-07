@@ -3087,39 +3087,35 @@ footer::after {
     transform: translate(-50%, -50%) scale(1.08);
   }
 
-  /* Popup label dock mobile: putih polos, lebih lega, dan dinaikkan. */
+  /* Popup label aktif mobile: putih polos dan minimal. */
   .dock-label {
     position: absolute;
     left: 50%;
-    bottom: calc(100% + 18px);
+    bottom: calc(100% + 14px);
     z-index: 3;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: max-content;
-    min-width: max-content;
-    min-height: 34px;
-    margin: 0;
+    min-width: 0;
     max-width: calc(100vw - 20px);
     max-height: none;
+    margin: 0;
+    padding: 4px 8px;
     overflow: visible;
-    padding: 8px 16px;
     border: 0;
-    border-radius: 10px;
+    border-radius: 6px;
     background: #ffffff;
-    font-size: 0.64rem;
-    font-weight: 800;
-    letter-spacing: 0.1px;
-    line-height: 1;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.15;
     white-space: nowrap;
-    box-shadow: 0 8px 18px -12px rgba(20, 22, 31, 0.28);
+    box-shadow: 0 3px 10px rgba(20, 22, 31, 0.06);
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, 5px) scale(0.94);
+    transform: translate(-50%, 3px);
     transform-origin: center bottom;
     transition:
-      opacity 0.18s ease,
-      transform 0.18s ease;
+      opacity 0.16s ease,
+      transform 0.16s ease;
   }
 
   /* Warna font label mengikuti warna ikon masing-masing. */
@@ -3148,19 +3144,15 @@ footer::after {
     color: #ec4899;
   }
 
+  /* Tanpa segitiga / v di bawah popup. */
   .dock-label::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid transparent;
-    border-top-color: #111111;
+    content: none;
+    display: none;
   }
 
   .dock-item.active .dock-label {
     opacity: 1;
-    transform: translate(-50%, 0) scale(1);
+    transform: translate(-50%, 0);
   }
 
   /* Di mobile jangan scale seluruh .dock-face karena label ikut membesar dan bisa keluar layar. */
@@ -3170,40 +3162,29 @@ footer::after {
 
   /* Item paling kiri/kanan: label dikunci ke dalam viewport agar tidak terpotong. */
   .dock-item:first-child .dock-label {
-    left: 0;
-    transform: translate(0, 5px) scale(0.94);
+    left: 4px;
+    transform: translate(0, 3px);
     transform-origin: left bottom;
   }
 
   .dock-item:first-child.active .dock-label {
-    transform: translate(0, 0) scale(1);
-  }
-
-  .dock-item:first-child .dock-label::after {
-    left: 22px;
+    transform: translate(0, 0);
   }
 
   .dock-item:last-child .dock-label {
     left: auto;
-    right: 0;
-    transform: translate(0, 5px) scale(0.94);
+    right: 4px;
+    transform: translate(0, 3px);
     transform-origin: right bottom;
   }
 
   .dock-item:last-child.active .dock-label {
-    transform: translate(0, 0) scale(1);
-  }
-
-  .dock-item:last-child .dock-label::after {
-    left: auto;
-    right: 17px;
-    transform: none;
+    transform: translate(0, 0);
   }
 
   /* Saat sedang smooth-scroll akibat klik dock, jangan tampilkan label section yang dilewati. */
   .dock.is-navigating .dock-label {
     opacity: 0 !important;
-    transform: translate(-50%, 5px) scale(0.94) !important;
     transition: none;
   }
 }
