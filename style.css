@@ -3085,8 +3085,9 @@ footer::after {
   .dock {
     width: max-content;
     justify-content: center;
+    align-items: center;
     gap: 4px;
-    padding: 10px 12px;
+    padding: 18px 14px;
     border-radius: 20px;
     box-shadow: 0 12px 32px -14px rgba(20, 22, 31, 0.28);
   }
@@ -3154,6 +3155,11 @@ footer::after {
   .dock-item.active .dock-glow {
     opacity: 0.75;
     transform: translate(-50%, -50%) scale(1.1);
+  }
+  /* Glow disamain sama bounding box item (face) biar rapi, ngga lebih kecil/gede dari itemnya. */
+  .dock-glow {
+    width: 48px;
+    height: 48px;
   }
 }
 @media (min-width: 641px) and (hover: hover) and (pointer: fine) {
