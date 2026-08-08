@@ -5498,7 +5498,8 @@ body.faq-redesign {
   letter-spacing: -0.04em;
   line-height: 1.12;
 }
-  .mitra-logo img {
+
+.mitra-logo img {
   height: 36px;
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr);
@@ -5506,7 +5507,6 @@ body.faq-redesign {
   align-items: start;
   margin-top: 38px;
   padding-top: 26px;
-  border-top: 1px solid rgba(21, 95, 170, 0.18);
 }
 
 .kurasi-v4__disclaimer-icon {
