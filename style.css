@@ -3154,7 +3154,7 @@ footer::after {
   }
   .dock-item.active .dock-glow {
     opacity: 0.75;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, calc(-50% - 6px)) scale(1.1);
   }
   /* Glow disamain sama bounding box item (face) biar rapi, ngga lebih kecil/gede dari itemnya. */
   .dock-glow {
@@ -3173,7 +3173,7 @@ footer::after {
   }
   .dock-item:hover .dock-glow {
     opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, calc(-50% - 8px)) scale(1.05);
   }
 }
 
