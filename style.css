@@ -3103,7 +3103,14 @@ footer::after {
       transform 0.16s ease;
   }
   .dock-item.active .dock-label {
-    opacity: 0;
+    opacity: 1;
+    max-height: none;
+    transform: translate(-50%, 0);
+  }
+  /* Glow desktop dikecilkan sedikit dari default. */
+  .dock-item.active .dock-glow {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 @media (min-width: 641px) and (hover: hover) and (pointer: fine) {
@@ -3114,6 +3121,10 @@ footer::after {
     opacity: 1;
     max-height: none;
     transform: translate(-50%, 0);
+  }
+  .dock-item:hover .dock-glow {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
   }
 }
 
