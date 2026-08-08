@@ -2368,6 +2368,23 @@ footer::after {
   background: var(--g-blue);
   color: #fff;
 }
+/* Wrapper animasi buka/tutup laci: grid-template-rows 0fr->1fr adalah
+   trik CSS native buat animate "height:auto" tanpa JS. Selector
+   ".guidev2-item > .guidev2-collapse" sengaja dipakai (bukan cuma
+   ".guidev2-collapse") supaya menang specificity dari UA stylesheet
+   "details:not([open]) > *:not(summary){display:none}" yang bikin
+   konten details ketutup tanpa animasi kalau nggak di-override. */
+.guidev2-item > .guidev2-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.guidev2-item[open] > .guidev2-collapse {
+  grid-template-rows: 1fr;
+}
+.guidev2-collapse > .guidev2-body {
+  overflow: hidden;
+}
 .guidev2-body {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(270px, 0.65fr);
