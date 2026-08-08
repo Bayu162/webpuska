@@ -3092,8 +3092,8 @@ footer::after {
     margin-top: 0;
     padding: 4px 9px;
     border-radius: 6px;
-    background: #18181b;
-    color: #fff;
+    background: #ffffff;
+    font-weight: 700;
     box-shadow: 0 6px 16px rgba(20, 22, 31, 0.2);
     opacity: 0;
     pointer-events: none;
@@ -3101,6 +3101,31 @@ footer::after {
     transition:
       opacity 0.16s ease,
       transform 0.16s ease;
+  }
+  /* Warna teks tooltip mengikuti warna ikon masing-masing, sama seperti mobile. */
+  .dock-item:nth-child(1) .dock-label {
+    color: #3b82f6;
+  }
+  .dock-item:nth-child(2) .dock-label {
+    color: #f97316;
+  }
+  .dock-item:nth-child(3) .dock-label {
+    color: #9333ea;
+  }
+  .dock-item:nth-child(4) .dock-label {
+    color: #22c55e;
+  }
+  .dock-item:nth-child(5) .dock-label {
+    color: #14b8a6;
+  }
+  .dock-item:nth-child(6) .dock-label {
+    color: #ef4444;
+  }
+  .dock-item:nth-child(7) .dock-label {
+    color: #6366f1;
+  }
+  .dock-item:nth-child(8) .dock-label {
+    color: #ec4899;
   }
   .dock-item.active .dock-label {
     opacity: 1;
