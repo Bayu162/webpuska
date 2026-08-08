@@ -3090,9 +3090,10 @@ footer::after {
     max-width: 160px;
     max-height: none;
     margin-top: 0;
-    padding: 4px 9px;
+    padding: 5px 10px;
     border-radius: 6px;
     background: #ffffff;
+    font-size: 0.8rem;
     font-weight: 700;
     box-shadow: 0 6px 16px rgba(20, 22, 31, 0.2);
     opacity: 0;
@@ -3127,12 +3128,6 @@ footer::after {
   .dock-item:nth-child(8) .dock-label {
     color: #ec4899;
   }
-  .dock-item.active .dock-label {
-    opacity: 1;
-    max-height: none;
-    transform: translate(-50%, 0);
-  }
-  /* Glow desktop dikecilkan sedikit dari default. */
   .dock-item.active .dock-glow {
     opacity: 0.75;
     transform: translate(-50%, -50%) scale(1.1);
